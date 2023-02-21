@@ -68,7 +68,7 @@ function Menu() {
     <>
     <Logo/>
     
-    <Popover className="relative bg-white">
+    <Popover className="relative">
       <div className="flex items-center justify-between p-6 md:justify-center md:space-x-10">
        
         <div className="-my-2 -mr-2 md:hidden">
