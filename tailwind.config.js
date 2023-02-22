@@ -17,6 +17,7 @@ module.exports = {
         chamoisee: '#8B7961',
         'light-1': '#967E6C',
         'light-2': '#EAE1D3',
+        'light-3': '#ffecec',
         'taupe-1': '#534032',
         'taupe-2': '#403428',
 
