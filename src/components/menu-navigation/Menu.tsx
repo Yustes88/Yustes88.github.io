@@ -12,8 +12,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Logo from "../logo/Logo";
-import navItems from "../../data/data";
 import MenuNav from "./MenuNav";
+import { navItems } from "../../data/data";
 
 const solutions = [
   {

@@ -1,8 +1,13 @@
 
+import { createRef } from "react";
+import { bakeryMenuData } from "../../data/data";
 import { CardsCarousel } from "../carosel/Carosel";
 
 
 export default function BakeryMenu() {
+  
+
+
   return (
     <div className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -13,6 +18,7 @@ export default function BakeryMenu() {
           </p>
         </div>
         <div className="mx-auto max-w-7xl pt-4 px-4 sm:px-6 lg:px-8">
+          
         <div className="mx-auto max-w-3xl">
             <CardsCarousel/>
             </div>

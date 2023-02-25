@@ -1,10 +1,12 @@
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
-import { createStyles, Paper, Text, Title, Button, useMantineTheme } from '@mantine/core';
+import { createStyles, Paper, Title, Button, useMantineTheme } from '@mantine/core';
+import { bakeryMenuData } from '../../data/data';
+import { createRef } from 'react';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: 440,
+    height: 300,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -33,6 +35,7 @@ const useStyles = createStyles((theme) => ({
 interface CardProps {
   image: string;
   title: string;
+  id: string;
 }
 
 function Card({ image, title }: CardProps) {
@@ -58,72 +61,52 @@ function Card({ image, title }: CardProps) {
   );
 }
 
-const data = [
-  {
-    image:
-      'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Выпечка',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Пироги',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Кондитерские изделия',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Горячее',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Завтраки'
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Кыстыбый',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Салаты',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Супы',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
-    title: 'Напитки',
-  },
-];
+
 
 export function CardsCarousel() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
-  const slides = data.map((item) => (
-    <Carousel.Slide key={item.title}>
+  const refs = bakeryMenuData.reduce((acc, value) => {
+    acc[value.id] = createRef();
+    return acc;
+  }, {});
+  console.log(refs)
+
+  const handleClick = (id) =>
+    refs[id].current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  const slides = bakeryMenuData.map((item) => (
+    <Carousel.Slide key={item.title} ref={refs[item.id]}>
       <Card {...item} />
     </Carousel.Slide>
   ));
 
   return (
+
+    <>
+    <div className="my-2 mx-auto max-w-4xl">
+            <ul className="flex flex-wrap justify-between text-lg leading-8 text-gray-600">
+            {bakeryMenuData.map((item) => {
+              return(
+                  <li className="w-max" key={item.id}><button onClick={() => {
+                    handleClick(item.id)
+                  }}>{item.title}</button></li>
+                  )
+                })}
+            </ul>
+          </div>
     <Carousel
+      
       slideSize="50%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
       slideGap="xl"
       align="start"
-      slidesToScroll={mobile ? 1 : 2}
-    >
+      slidesToScroll={mobile ? 1 : 1}
+      >
       {slides}
     </Carousel>
+      </>
   );
 }
