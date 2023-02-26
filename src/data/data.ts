@@ -1,5 +1,5 @@
 import { randomId } from "@mantine/hooks";
-import { MenuItem } from "../types/types";
+import { BakeryMenuTypes, MenuItem } from "../types/types";
 
 const navItems: MenuItem[] = [
   {
@@ -21,7 +21,7 @@ const navItems: MenuItem[] = [
 ];
 
 
-const bakeryMenuData = [
+const bakeryMenuData: BakeryMenuTypes[] = [
   {
     image:
       'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',

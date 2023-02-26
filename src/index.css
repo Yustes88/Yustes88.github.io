@@ -12,6 +12,12 @@
 		background-repeat: no-repeat;
 		transition: background-size .2s ease-in-out;
 	}
+
+ @layer utilities {
+  .text-shadow {
+    text-shadow: 0 0 .8px #7A5C52, 0 0 .8px #7A5C52;
+  }
+ } 
   
 	.link-underline-brown {
     background-image: linear-gradient(transparent, transparent), linear-gradient(#7A5C52, #7A5C52);
@@ -188,7 +194,7 @@ textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   line-height: inherit; /* 1 */
-  color: inherit; /* 1 */
+  /* color: inherit; 1 */
   margin: 0; /* 2 */
   padding: 0; /* 3 */
 }
@@ -391,3 +397,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 [hidden] {
   display: none;
 }
+
+
+

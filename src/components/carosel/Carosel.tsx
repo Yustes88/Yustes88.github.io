@@ -66,13 +66,13 @@ function Card({ image, title }: CardProps) {
 export function CardsCarousel() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+
   const refs = bakeryMenuData.reduce((acc, value) => {
     acc[value.id] = createRef();
     return acc;
   }, {});
-  console.log(refs)
 
-  const handleClick = (id) =>
+  const handleClick = (id: string) =>
     refs[id].current.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -87,16 +87,21 @@ export function CardsCarousel() {
 
     <>
     <div className="my-2 mx-auto max-w-4xl">
-            <ul className="flex flex-wrap justify-between text-lg leading-8 text-gray-600">
+            <ul className="flex flex-wrap justify-center text-lg leading-8 text-gray-600">
             {bakeryMenuData.map((item) => {
               return(
-                  <li className="w-max" key={item.id}><button onClick={() => {
+                  <li className="w-max hover:scale-110 hover:-translate-y-2 transition-all duration-500" key={item.id}>
+                    <button onClick={() => {
                     handleClick(item.id)
-                  }}>{item.title}</button></li>
+                  }} className='bg-brown-light-3 inline-block px-3.5 m-1 hover:text-shadow transition-all '>{item.title}
+                  </button></li>
                   )
                 })}
             </ul>
           </div>
+
+          <div className="mx-auto max-w-3xl">
+
     <Carousel
       
       slideSize="50%"
@@ -107,6 +112,7 @@ export function CardsCarousel() {
       >
       {slides}
     </Carousel>
+    </div>
       </>
   );
 }

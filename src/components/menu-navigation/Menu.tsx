@@ -94,7 +94,7 @@ function Menu() {
       <Popover className="relative">
         <div className="flex items-center justify-between p-6 md:justify-center md:space-x-10">
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-brown hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-brown hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -105,7 +105,7 @@ function Menu() {
                 <>
                   <Popover.Button
                     className={classNames(
-                      open ? "text-brown bg-inherit" : "text-brown bg-inherit",
+                      open ? "text-brown bg-brown-light-3" : "text-brown bg-brown-light-3",
                       "group inline-flex items-center rounded-md font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 text-base max-w-sm font-medium leading-tight"
                     )}
                   >

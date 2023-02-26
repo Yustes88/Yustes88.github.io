@@ -1,6 +1,3 @@
-
-import { createRef } from "react";
-import { bakeryMenuData } from "../../data/data";
 import { CardsCarousel } from "../carosel/Carosel";
 
 
@@ -19,9 +16,9 @@ export default function BakeryMenu() {
         </div>
         <div className="mx-auto max-w-7xl pt-4 px-4 sm:px-6 lg:px-8">
           
-        <div className="mx-auto max-w-3xl">
+        
             <CardsCarousel/>
-            </div>
+            
         </div>
       </div>
     </div>
