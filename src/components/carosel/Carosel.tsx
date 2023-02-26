@@ -103,12 +103,13 @@ export function CardsCarousel() {
           <div className="mx-auto max-w-3xl">
 
     <Carousel
-      
       slideSize="50%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
       slideGap="xl"
       align="start"
       slidesToScroll={mobile ? 1 : 1}
+      loop 
+      dragFree
       >
       {slides}
     </Carousel>
