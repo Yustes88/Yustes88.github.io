@@ -9,7 +9,7 @@ function MenuNav({ data }: MenuNavProps) {
     <>
       {data.map((item) => {
         return (
-          <div className="relative sm:max-w-xl sm:mx-auto">
+          <div className="relative sm:max-w-xl sm:mx-auto" key={item.title}>
             <a
               href={item.src}
               className="text-base max-w-sm font-medium text-brown leading-tight"
