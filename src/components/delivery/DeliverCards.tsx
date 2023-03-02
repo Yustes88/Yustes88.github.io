@@ -6,6 +6,8 @@ import {
   Card,
   SimpleGrid,
   Container,
+  Button,
+  Group,
 } from '@mantine/core';
 
 const mockdata = [
@@ -80,6 +82,10 @@ const useStyles = createStyles((theme) => ({
       marginTop: theme.spacing.sm,
     },
   },
+
+  button: {
+    alignSelf: 'end',
+  }
 }));
 
 export function DeliveryCards() {
@@ -113,6 +119,9 @@ export function DeliveryCards() {
 
       <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
         {features}
+        <Group className='flex'>
+        <Button color='green' className='animate-pulse'>Оформить доставку</Button>
+        </Group>
       </SimpleGrid>
     </Container>
   );
