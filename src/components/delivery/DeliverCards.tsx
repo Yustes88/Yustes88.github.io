@@ -119,9 +119,10 @@ export function DeliveryCards() {
 
       <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
         {features}
-        <Group className='flex'>
-        <Button color='green' className='animate-pulse'>Оформить доставку</Button>
-        </Group>
+
+        <div className='flex items-center'>
+        <Button color='green' className='animate-pulse flex-1'>Оформить доставку <span className='pl-2'>&#10141;</span> </Button>
+        </div>
       </SimpleGrid>
     </Container>
   );
