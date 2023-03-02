@@ -1,8 +1,6 @@
-import { BoltIcon, FireIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+import { BanknotesIcon, ClockIcon, PhoneArrowDownLeftIcon, ShoppingBagIcon } from '@heroicons/react/24/outline';
 import {
   createStyles,
-  Badge,
-  Group,
   Title,
   Text,
   Card,
@@ -12,22 +10,28 @@ import {
 
 const mockdata = [
   {
-    title: 'Extreme performance',
+    title: 'Время доставки',
     description:
-      'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
-    icon: BoltIcon,
+      'Доставка в день заказа, если она оформлена до 15:00. После 15:00 доставка на следующий день',
+    icon: ClockIcon,
   },
   {
-    title: 'Privacy focused',
+    title: 'Связь',
     description:
-      'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
-    icon: UserCircleIcon,
+      'После оформления заказа  с вами свяжется наш специалист и подробно проконсультирует по вопросам доставки',
+    icon: PhoneArrowDownLeftIcon,
   },
   {
-    title: 'No third parties',
+    title: 'Самовывоз',
     description:
-      'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
-    icon: FireIcon,
+      'Вы можете забрать заказ самостоятельно из пекарни',
+    icon: ShoppingBagIcon,
+  },
+  {
+    title: 'Оплата',
+    description:
+      'Доставка курьером оплачивается дополнительно. Минимальная сумма доставки - 1000',
+    icon: BanknotesIcon,
   },
 ];
 
@@ -47,7 +51,7 @@ const useStyles = createStyles((theme) => ({
     '&::after': {
       content: '""',
       display: 'block',
-      backgroundColor: theme.fn.primaryColor(),
+      backgroundColor: theme.colors.brown,
       width: 45,
       height: 2,
       marginTop: theme.spacing.sm,
@@ -66,7 +70,7 @@ const useStyles = createStyles((theme) => ({
     '&::after': {
       content: '""',
       display: 'block',
-      backgroundColor: theme.fn.primaryColor(),
+      backgroundColor: theme.colors.brown,
       width: 45,
       height: 2,
       marginTop: theme.spacing.sm,
@@ -78,6 +82,7 @@ export function DeliveryCards() {
   const { classes } = useStyles();
   const features = mockdata.map((feature) => (
     <Card key={feature.title} shadow="md" radius="md" className={classes.card} p="xl">
+      <feature.icon color='brown' className="h-5 w-5 text-white" aria-hidden="true"/>
       <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
@@ -87,20 +92,19 @@ export function DeliveryCards() {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl">
-      <Group position="center">
+    <Container size="xl" py="xl" className='relative before:bg-clip'>
+      {/* <Group position="center">
         <Badge variant="filled" size="lg">
           Best company ever
         </Badge>
-      </Group>
+      </Group> */}
 
       <Title order={2} className={classes.title} align="center" mt="sm">
-        Integrate effortlessly with any technology stack
+            Доставка
       </Title>
 
-      <Text color="dimmed" className={classes.description} align="center" mt="md">
-        Every once in a while, you’ll see a Golbat that’s missing some fangs. This happens when
-        hunger drives it to try biting a Steel-type Pokémon.
+      <Text color='black' className={classes.description} align="center" mt="md">
+        Какой-то короткий текст про доставку. Можно чуть подлиннее
       </Text>
 
       <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
