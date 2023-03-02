@@ -64,6 +64,10 @@ const useStyles = createStyles((theme) => ({
     border: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
     }`,
+    transition: 'all 0.3s',
+    ':hover': {
+      transform: 'scale(1.1)'
+    }
   },
 
   cardTitle: {
