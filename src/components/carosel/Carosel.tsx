@@ -67,7 +67,7 @@ export function CardsCarousel() {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
-  const refs = bakeryMenuData.reduce((acc, value) => {
+  const refs:{[key: string]: any} = bakeryMenuData.reduce((acc: {[key: string]: any}, value) => {
     acc[value.id] = createRef();
     return acc;
   }, {});
@@ -75,7 +75,7 @@ export function CardsCarousel() {
   const handleClick = (id: string) =>
     refs[id].current.scrollIntoView({
       behavior: 'smooth',
-      block: 'start',
+      block: 'center',
     });
   const slides = bakeryMenuData.map((item) => (
     <Carousel.Slide key={item.title} ref={refs[item.id]}>
@@ -103,7 +103,7 @@ export function CardsCarousel() {
           <div className="mx-auto max-w-3xl">
 
     <Carousel
-      slideSize="50%"
+      slideSize="51%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}
       slideGap="xl"
       align="start"
