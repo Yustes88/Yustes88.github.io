@@ -1,5 +1,5 @@
 import { randomId } from "@mantine/hooks";
-import { BakeryMenuTypes, MenuItem } from "../types/types";
+import { BakeryMenuTypes, DeliveryDataTypes, MenuItem } from "../types/types";
 
 const navItems: MenuItem[] = [
   {
@@ -78,4 +78,15 @@ const bakeryMenuData: BakeryMenuTypes[] = [
   },
 ];
 
-export {navItems, bakeryMenuData};
+
+const DeliveryData: DeliveryDataTypes[] = [
+  {
+    title: 'Мама Волга',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    workingDays: 'Пн-Вс',
+    workingHours: '9.00 - 21.00',
+    address: 'СПб, Фрунзенский район, улица Восточная, 32',
+  }
+]
+
+export {navItems, bakeryMenuData, DeliveryData};

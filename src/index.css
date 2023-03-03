@@ -33,6 +33,21 @@
   }
  }
 
+ @layer utilities {
+  .hover-1 {
+    background-image: linear-gradient(rgba(119, 123, 124, 0.3), rgba(119, 123, 124, 0.3)
+
+    );
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    transition: .4s;
+  }
+  .hover-1:hover {
+      background-size: 100% 100%;
+      cursor: pointer;
+  }
+ }
+
   
 	.link-underline-brown {
     background-image: linear-gradient(transparent, transparent), linear-gradient(#7A5C52, #7A5C52);

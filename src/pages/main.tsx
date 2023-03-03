@@ -1,3 +1,4 @@
+import Addresses from "../components/addresses/Addresses";
 import BakeryMenu from "../components/bakery-menu/BakeryMenu";
 import { DeliveryCards } from "../components/delivery/DeliverCards";
 import { Hero } from "../components/hero/Hero";
@@ -10,6 +11,7 @@ function Main() {
       <Hero />
       <BakeryMenu/>
       <DeliveryCards/>
+      <Addresses/>
     </>
   );
 }
