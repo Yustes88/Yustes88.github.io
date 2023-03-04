@@ -1,7 +1,13 @@
+import { useState } from "react";
 import { DeliveryData } from "../../data/data";
-import AddressList from "./AddressItem";
+import AddressInfo from "./AddressInfo";
+import AddressList from "./AddressList";
 
 export default function Addresses() {
+  const [addressById, setAddressById] = useState(DeliveryData[0])
+  console.log(addressById)
+
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -13,10 +19,23 @@ export default function Addresses() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-         <AddressList data={DeliveryData}/>
+         <AddressList data={DeliveryData} setAddressId = {setAddressById}/>
         </div>
+
+      <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div>
+          
+          <AddressInfo/>
+          
+        </div>
+
+
+        <div>Map</div>
+        </div>
+
       </div>
       
+
     </div>
   )
 }

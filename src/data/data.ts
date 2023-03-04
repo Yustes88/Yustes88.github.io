@@ -81,11 +81,22 @@ const bakeryMenuData: BakeryMenuTypes[] = [
 
 const DeliveryData: DeliveryDataTypes[] = [
   {
+    id: 1,
     title: 'Мама Волга',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     workingDays: 'Пн-Вс',
     workingHours: '9.00 - 21.00',
     address: 'СПб, Фрунзенский район, улица Восточная, 32',
+    addressShort: 'Восточная, 32',
+  },
+  {
+    id: 2,
+    title: 'Мама Волга 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    workingDays: 'Пн-Вс',
+    workingHours: '9.00 - 21.00',
+    address: 'СПб, Фрунзенский район, улица Восточная, 32',
+    addressShort: 'Восточная, 32',
   }
 ]
 
