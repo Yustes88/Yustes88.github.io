@@ -88,15 +88,17 @@ const DeliveryData: DeliveryDataTypes[] = [
     workingHours: '9.00 - 21.00',
     address: 'СПб, Фрунзенский район, улица Восточная, 32',
     addressShort: 'Восточная, 32',
+    phoneNumber: 788899900032,
   },
   {
     id: 2,
     title: 'Мама Волга 2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Lorem ipsum dolor sit amet.',
     workingDays: 'Пн-Вс',
     workingHours: '9.00 - 21.00',
-    address: 'СПб, Фрунзенский район, улица Восточная, 32',
-    addressShort: 'Восточная, 32',
+    address: 'СПб, метро Василеостровская',
+    addressShort: 'Василеострвоская, 32',
+    phoneNumber: 79125678956,
   }
 ]
 

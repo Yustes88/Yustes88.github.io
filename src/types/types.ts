@@ -17,4 +17,5 @@ export type DeliveryDataTypes = {
     workingHours: string;
     address: string;
     addressShort: string;
+    phoneNumber: number;
 }
