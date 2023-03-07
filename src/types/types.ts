@@ -18,4 +18,8 @@ export type DeliveryDataTypes = {
     address: string;
     addressShort: string;
     phoneNumber: number;
+    location: {
+      lat: number; 
+      lon: number;
+    }
 }

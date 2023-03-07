@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { DeliveryData } from "../../data/data";
+import SimpleMap from "../map/Map";
+import MapChart from "../map/Map";
 import AddressInfo from "./AddressInfo";
 import AddressList from "./AddressList";
 
@@ -29,8 +31,11 @@ export default function Addresses() {
           
         </div>
 
+        <SimpleMap/>
 
-        <div>Map</div>
+        <div>
+
+        </div>
         </div>
 
       </div>
