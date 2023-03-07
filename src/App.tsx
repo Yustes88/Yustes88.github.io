@@ -16,7 +16,20 @@ function App() {
           ],
           'red': ['#ffe3eb', '#ffb2c2', '#fd8199', '#fb5171', '#f92248', '#df0a2f', '#ae0424', '#7e011a', '#4d000e', '#1f0003',
           ]
-      }
+      },
+      components: {
+        Container: {
+          defaultProps: {
+            sizes: {
+              xs: 540,
+              sm: 720,
+              md: 960,
+              lg: 1140,
+              xl: '100vw',
+            },
+          },
+        },
+      },
     }}>
     <BrowserRouter>
     <Routes>
