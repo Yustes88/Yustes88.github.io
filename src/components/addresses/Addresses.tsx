@@ -31,7 +31,7 @@ export default function Addresses() {
           
         </div>
 
-        <SimpleMap/>
+        <SimpleMap lat={addressById.location.lat} lng={addressById.location.lon}/>
 
         <div>
 

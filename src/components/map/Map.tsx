@@ -1,37 +1,40 @@
-import React from "react";
 import GoogleMapReact from 'google-map-react';
+import { MapPinIcon } from "@heroicons/react/24/outline";
 
 type MapComponentProps = {
-  text: string,
   lat: number,
   lng: number,
 }
 
-const MapComponent = ({ text, lat, lng }: MapComponentProps) => <div>{text}</div>;
+const MapComponent = ({ lat, lng }: MapComponentProps) => {
+ return(
+ <>
+  <MapPinIcon className="w-10 stroke-red-50"/>
+  </>)
+};
 
-export default function SimpleMap(){
+export default function SimpleMap({lat, lng}: MapComponentProps){
   const defaultProps = {
     center: {
-      lat: 10.99835602,
-      lng: 77.01502627
+      lat: 59.934280,
+      lng: 30.335098
     },
-    zoom: 11
+    zoom: 15
   };
 
-  // const google_api_key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
+  const google_api_key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
 
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '70vh', width: '100%' }}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyBD6giqn65jnifjGcC6wZ8uO9GbAIKDoi0'}}
+        bootstrapURLKeys={{ key: google_api_key}}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
         <MapComponent
-          lat={59.955413}
-          lng={30.337844}
-          text="My Marker"
+          lat={lat}
+          lng={lng}
         />
       </GoogleMapReact>
     </div>
