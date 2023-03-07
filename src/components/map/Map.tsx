@@ -10,7 +10,7 @@ type MapComponentProps = {
 const MapComponent = ({ lat, lng }: MapComponentProps) => {
  return(
  <>
-  <MapPinIcon className="w-10 stroke-red-50"/>
+  <MapPinIcon className="w-10 stroke-red-50" fill='red'/>
   </>)
 };
 
