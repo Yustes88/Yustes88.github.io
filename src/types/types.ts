@@ -8,3 +8,18 @@ export type BakeryMenuTypes = {
   title: string;
   id: string;
 }
+
+export type DeliveryDataTypes = {
+  id: number;
+  title: string;
+  description: string;
+    workingDays: string;
+    workingHours: string;
+    address: string;
+    addressShort: string;
+    phoneNumber: number;
+    location: {
+      lat: number; 
+      lon: number;
+    }
+}

@@ -14,7 +14,7 @@ module.exports = {
         'coffee-1': '#7A5C52',
         'coffee-2': '#674A41',
         DEFAULT: '#5D3937',
-        lion: '#C39A76',
+        lion: '',
         coyote: '#746451',
         noir: '#4D3C29',
         chamoisee: '#8B7961',
