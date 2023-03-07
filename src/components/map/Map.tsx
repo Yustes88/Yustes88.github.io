@@ -1,5 +1,6 @@
 import GoogleMapReact from 'google-map-react';
 import { MapPinIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from 'react';
 
 type MapComponentProps = {
   lat: number,
@@ -13,14 +14,18 @@ const MapComponent = ({ lat, lng }: MapComponentProps) => {
   </>)
 };
 
+
+
 export default function SimpleMap({lat, lng}: MapComponentProps){
-  const defaultProps = {
-    center: {
-      lat: 59.934280,
-      lng: 30.335098
-    },
-    zoom: 15
-  };
+  const [value, setValue] = useState({
+    lat: 59.93853,
+    lng: 30.347819,
+  });
+
+  useEffect(() => {
+    setValue({lat, lng});
+}, [lat, lng]);
+
 
   const google_api_key = process.env.REACT_APP_GOOGLE_MAPS_API_KEY as string;
 
@@ -29,8 +34,8 @@ export default function SimpleMap({lat, lng}: MapComponentProps){
     <div style={{ height: '70vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: google_api_key}}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
+        center={value}
+        zoom={16}
       >
         <MapComponent
           lat={lat}
