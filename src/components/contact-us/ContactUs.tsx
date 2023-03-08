@@ -61,14 +61,18 @@ const useStyles = createStyles((theme) => ({
     color: theme.white,
 
     '&:hover': {
-      color: theme.colors.brown[1],
+      color: theme.colors.brown[8],
     },
   },
 
   input: {
     backgroundColor: theme.white,
-    borderColor: theme.colors.brown[5],
+    borderColor: theme.colors.brown[2],
     color: theme.black,
+
+    '&:focus': {
+      borderColor: theme.colors.brown[8],
+    },
 
     '&::placeholder': {
       color: theme.colors.brown[5],
@@ -116,7 +120,6 @@ export function ContactUs() {
             placeholder="your@email.com"
             required
             classNames={{ input: classes.input, label: classes.inputLabel }}
-            color='green'
           />
           <TextInput
             label="Имя"
