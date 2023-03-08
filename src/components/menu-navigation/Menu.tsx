@@ -13,7 +13,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Logo from "../logo/Logo";
 import MenuNav from "./MenuNav";
-import { navItems } from "../../data/data";
+import { bakeryMenuData, navItems } from "../../data/data";
 
 const solutions = [
   {
@@ -133,47 +133,28 @@ function Menu() {
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform lg:left-1/2 lg:ml-0 lg:max-w-2xl lg:-translate-x-1/2">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                         <div className="relative grid gap-6 bg-brown-light-3 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
-                          {solutions.map((solution) => (
+                          {bakeryMenuData.map((item) => (
                             <a
-                              key={solution.name}
-                              href={solution.href}
+                              key={item.title}
+                              href='!#'
                               className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                             >
-                              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                                <solution.icon
+                              {/* <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
+                                <item.icon
                                   className="h-6 w-6"
                                   aria-hidden="true"
                                 />
-                              </div>
+                              </div> */}
                               <div className="ml-4">
                                 <p className="text-base font-medium text-gray-900">
-                                  {solution.name}
+                                  {item.title}
                                 </p>
                                 <p className="mt-1 text-sm text-gray-500">
-                                  {solution.description}
+                                  {item.id}
                                 </p>
                               </div>
                             </a>
                           ))}
-                        </div>
-                        <div className="bg-gray-50 p-5 sm:p-8">
-                          <a
-                            href="!#"
-                            className="-m-3 flow-root rounded-md p-3 hover:bg-gray-100"
-                          >
-                            <div className="flex items-center">
-                              <div className="text-base font-medium text-gray-900">
-                                Enterprise
-                              </div>
-                              <span className="ml-3 inline-flex items-center rounded-full bg-indigo-100 px-3 py-0.5 text-xs font-medium leading-5 text-indigo-800">
-                                New
-                              </span>
-                            </div>
-                            <p className="mt-1 text-sm text-gray-500">
-                              Empower your entire team with even more advanced
-                              tools.
-                            </p>
-                          </a>
                         </div>
                       </div>
                     </Popover.Panel>
