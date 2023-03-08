@@ -132,7 +132,7 @@ function Menu() {
                   >
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform lg:left-1/2 lg:ml-0 lg:max-w-2xl lg:-translate-x-1/2">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                        <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
+                        <div className="relative grid gap-6 bg-brown-light-3 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                           {solutions.map((solution) => (
                             <a
                               key={solution.name}
