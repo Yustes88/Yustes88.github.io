@@ -102,7 +102,7 @@ export function DeliveryCards() {
     </Card>
   ));
   return (
-    <Container size='xl' py="xl" className='relative before:bg-clip'>
+    <Container size='xxl' py="xl" className='relative before:bg-clip'>
       {/* <Group position="center">
         <Badge variant="filled" size="lg">
           Best company ever
