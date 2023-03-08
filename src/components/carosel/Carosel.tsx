@@ -75,7 +75,7 @@ export function CardsCarousel() {
   const handleClick = (id: string) =>
     refs[id].current.scrollIntoView({
       behavior: 'smooth',
-      block: 'center',
+      block: 'nearest',
     });
   const slides = bakeryMenuData.map((item) => (
     <Carousel.Slide key={item.title} ref={refs[item.id]}>
