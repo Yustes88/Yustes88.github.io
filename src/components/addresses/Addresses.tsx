@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { DeliveryData } from "../../data/data";
 import SimpleMap from "../map/Map";
-import MapChart from "../map/Map";
 import AddressInfo from "./AddressInfo";
 import AddressList from "./AddressList";
 
@@ -11,9 +10,9 @@ export default function Addresses() {
 
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white pt-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
+        <div className="max-w-2xl m-auto text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">Наши адреса</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
