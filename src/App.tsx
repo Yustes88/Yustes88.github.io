@@ -1,8 +1,10 @@
 import { MantineProvider } from "@mantine/core";
 import { Route } from "react-router";
 import { Routes, BrowserRouter } from "react-router-dom";
+import Menu from "./components/menu-navigation/Menu";
 import { AppRoute } from "./const";
 import Main from "./pages/main";
+import MenuPage from "./pages/menu";
 
 function App() {
   return (
@@ -28,10 +30,12 @@ function App() {
       },
     }}>
     <BrowserRouter>
+    <Menu/>
     <Routes>
       <Route path={AppRoute.Root}>
         <Route index element={<Main/>}/>
       </Route>
+      <Route path={AppRoute.Menu} element={<MenuPage/>}/>
     </Routes>
     </BrowserRouter>
     </MantineProvider>

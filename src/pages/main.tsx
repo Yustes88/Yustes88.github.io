@@ -11,7 +11,6 @@ import { navItems } from "../data/data";
 function Main() {
   return (
     <>
-      <Menu />
       <Hero />
       <BakeryMenu/>
       <DeliveryCards/>

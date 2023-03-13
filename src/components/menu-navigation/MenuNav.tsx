@@ -8,6 +8,8 @@ function MenuNav({ data }: MenuNavProps) {
   return (
     <>
       {data.map((item) => {
+        if(item.title === 'Меню') return '';
+        
         return (
           <div className="relative sm:max-w-xl sm:mx-auto" key={item.title}>
             <a
