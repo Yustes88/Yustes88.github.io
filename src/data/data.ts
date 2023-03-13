@@ -3,6 +3,10 @@ import { BakeryMenuTypes, DeliveryDataTypes, MenuItem } from "../types/types";
 
 const navItems: MenuItem[] = [
   {
+  title: 'Меню',
+  src: '/'
+},
+  {
   title: 'Главная',
   src: '/'
 },
