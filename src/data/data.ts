@@ -1,10 +1,11 @@
 import { randomId } from "@mantine/hooks";
+import { AppRoute } from "../const";
 import { BakeryMenuTypes, DeliveryDataTypes, MenuItem } from "../types/types";
 
 const navItems: MenuItem[] = [
   {
   title: 'Меню',
-  src: '/'
+  src: AppRoute.Menu
 },
   {
   title: 'Главная',
