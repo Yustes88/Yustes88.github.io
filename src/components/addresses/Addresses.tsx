@@ -6,8 +6,6 @@ import AddressList from "./AddressList";
 
 export default function Addresses() {
   const [addressById, setAddressById] = useState(DeliveryData[0])
-  console.log(addressById)
-
 
   return (
     <div className="bg-white pt-16">

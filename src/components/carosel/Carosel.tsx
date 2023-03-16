@@ -2,7 +2,8 @@ import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import { createStyles, Paper, Title, Button, useMantineTheme } from '@mantine/core';
 import { bakeryMenuData } from '../../data/data';
-import { createRef } from 'react';
+import { createRef, useState } from 'react';
+import MenuList from '../bakery-menu/MenuList';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -72,11 +73,13 @@ export function CardsCarousel() {
     return acc;
   }, {});
 
-  const handleClick = (id: string) =>
-    refs[id].current.scrollIntoView({
+  const handleClick = (id: string) => {    
+  return refs[id].current.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
-    });
+    });}
+
+
   const slides = bakeryMenuData.map((item) => (
     <Carousel.Slide key={item.title} ref={refs[item.id]}>
       <Card {...item} />
@@ -86,22 +89,10 @@ export function CardsCarousel() {
   return (
 
     <>
-    <div className="my-2 mx-auto max-w-4xl">
-            <ul className="flex flex-wrap justify-center text-lg leading-8 text-gray-600">
-            {bakeryMenuData.map((item) => {
-              return(
-                  <li className="w-max hover:scale-110 hover:-translate-y-2 transition-all duration-500" key={item.id}>
-                    <button onClick={() => {
-                    handleClick(item.id)
-                  }} className='bg-brown-light-3 inline-block px-3.5 m-1 hover:text-shadow transition-all '>{item.title}
-                  </button></li>
-                  )
-                })}
-            </ul>
-          </div>
+    
+  <MenuList handleClick= {handleClick}/>
 
-          <div className="mx-auto max-w-3xl">
-
+  <div className="mx-auto max-w-3xl">
     <Carousel
       slideSize="51%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}

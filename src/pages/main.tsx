@@ -4,7 +4,7 @@ import { ContactUs } from "../components/contact-us/ContactUs";
 import { DeliveryCards } from "../components/delivery/DeliverCards";
 import FAQ from "../components/faq/FAQ";
 import { Footer } from "../components/footer/Footer";
-import { Hero } from "../components/hero/Hero";import Menu from "../components/menu-navigation/Menu";
+import { Hero } from "../components/hero/Hero";
 import { navItems } from "../data/data";
 
 function Main() {
