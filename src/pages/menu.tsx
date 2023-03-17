@@ -1,13 +1,13 @@
-import BakeryMenu from "../components/bakery-menu/BakeryMenu";
-import ScrollButton from "../components/buttons/ScrollButton";
+import { useParams } from "react-router-dom";
 import MenuItemLayout from "../components/menu-item/MenuItemLayout";
 
 function MenuPage() {
+  let { id } = useParams();
+  console.log(id)
+
   return (
     <>
-    {/* <BakeryMenu/>
-    <ScrollButton/> */}
-    <MenuItemLayout/>
+    <MenuItemLayout id = {id}/>
     </>
   )
 }

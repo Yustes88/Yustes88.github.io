@@ -9,7 +9,7 @@ export default function ProductsList({menu}: any) {
           <img
             src={product.imgSrc}
             alt={product.title}
-            className="h-full w-full object-cover object-center group-hover:opacity-75"
+            className="h-2/4 object-cover object-center group-hover:opacity-75"
           />
         </div>
         <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">

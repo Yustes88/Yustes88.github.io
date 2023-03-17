@@ -1,9 +1,14 @@
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import { createStyles, Paper, Title, Button, useMantineTheme } from '@mantine/core';
-import { bakeryMenuData } from '../../data/data';
-import { createRef, useState } from 'react';
+import { createRef } from 'react';
 import MenuList from '../bakery-menu/MenuList';
+import { BakeryMenuTypes } from '../../types/types';
+import { Link } from 'react-router-dom';
+
+type CardsCarouselProps = {
+  data: BakeryMenuTypes[];
+}
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -39,7 +44,7 @@ interface CardProps {
   id: string;
 }
 
-function Card({ image, title }: CardProps) {
+function Card({ image, title, id }: CardProps) {
   const { classes } = useStyles();
 
   return (
@@ -55,6 +60,10 @@ function Card({ image, title }: CardProps) {
           {title}
         </Title>
       </div>
+      
+      <Link to={`/menu/${id}`}>
+          <div>Click here!!!!</div>
+        </Link>
       <Button variant='filled' color='green'>
         Подробнее
       </Button>
@@ -64,11 +73,11 @@ function Card({ image, title }: CardProps) {
 
 
 
-export function CardsCarousel() {
+export function CardsCarousel({data}: CardsCarouselProps) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
-  const refs:{[key: string]: any} = bakeryMenuData.reduce((acc: {[key: string]: any}, value) => {
+  const refs:{[key: string]: any} = data.reduce((acc: {[key: string]: any}, value) => {
     acc[value.id] = createRef();
     return acc;
   }, {});
@@ -80,7 +89,7 @@ export function CardsCarousel() {
     });}
 
 
-  const slides = bakeryMenuData.map((item) => (
+  const slides = data.map((item) => (
     <Carousel.Slide key={item.title} ref={refs[item.id]}>
       <Card {...item} />
     </Carousel.Slide>

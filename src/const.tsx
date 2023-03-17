@@ -1,5 +1,6 @@
 export enum AppRoute {
   Root = '/',
   NotFound = '*',
-  Menu = 'menu'
+  Menu = 'menu',
+  Id = ':id',
 }

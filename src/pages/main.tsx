@@ -6,12 +6,17 @@ import FAQ from "../components/faq/FAQ";
 import { Footer } from "../components/footer/Footer";
 import { Hero } from "../components/hero/Hero";
 import { navItems } from "../data/data";
+import { BakeryMenuTypes } from "../types/types";
 
-function Main() {
+type MainProps = {
+  data: BakeryMenuTypes[]
+}
+
+function Main({data}: MainProps) {
   return (
     <>
       <Hero />
-      <BakeryMenu/>
+      <BakeryMenu data = {data}/>
       <DeliveryCards/>
       <Addresses/>
       <FAQ/>

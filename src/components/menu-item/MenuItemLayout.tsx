@@ -22,6 +22,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import MenuList from '../bakery-menu/MenuList'
 import { bakeryMenuData } from '../../data/data'
 import ProductsList from './ProductsList'
+import { getMenuById } from '../../utils/utils'
 
 
 const sortOptions = [
@@ -36,9 +37,17 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function MenuItemLayout() {
+type MenuItemLayoutProps = {
+  id: string | undefined,
+}
+
+export default function MenuItemLayout({id}: MenuItemLayoutProps) {
+  const menubyId = getMenuById(id, bakeryMenuData)
+  console.log(menubyId)
+  console.log(id)
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const [menu, setMenu] = useState(bakeryMenuData[0])
+  const [menu, setMenu] = useState(menubyId)
   
   const handleClick = (id: string) => {    
   return bakeryMenuData.filter((item) => {
