@@ -3,6 +3,59 @@
 @tailwind utilities;
 
 @layer utilities {
+  .card {
+    position: relative;
+  }
+
+  .card img {
+    object-fit: cover;
+  }
+  
+  .card * {
+    transition: all 1s;
+  }
+  
+  
+  .card p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .card.hidden-text {
+    opacity: 0;
+  }
+  
+  .card:hover .hidden, .card:focus-within .hidden{
+    display: block;
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    color: white;
+    translate: transform(50%, -50%);
+    opacity: 1;
+  }
+  
+  .card:hover img, .card:focus-within img {
+    transform: scale(1.1);
+    filter: brightness(70%);
+
+  }
+
+  .card:hover .card.hidden-text, .card:focus-within .card.hidden-text {
+    opacity: 1;
+  }
+
+  
+  .card:hover h2, .card:focus-within h2 {
+    padding: 8px 12px 0;
+  }
+}
+
+@layer utilities {
   .link-underline {
     padding-bottom: 0.3rem;
 		border-bottom-width: 0;
