@@ -3,7 +3,7 @@ import { BakeryMenuItemTypes } from "../../types/types";
 export default function ProductsList({menu}: any) {
   if(menu === undefined) return null;
   return(
-    <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+    <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu.map((item: BakeryMenuItemTypes) => (
               <div key={item.id} className="group card">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
