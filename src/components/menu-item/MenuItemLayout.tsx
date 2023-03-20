@@ -23,6 +23,7 @@ import MenuList from '../bakery-menu/MenuList'
 import { bakeryMenuData } from '../../data/data'
 import ProductsList from './ProductsList'
 import { getMenuById } from '../../utils/utils'
+import Error from '../error/Error'
 
 
 const sortOptions = [
@@ -43,8 +44,6 @@ type MenuItemLayoutProps = {
 
 export default function MenuItemLayout({id}: MenuItemLayoutProps) {
   const menubyId = getMenuById(id, bakeryMenuData)
-  console.log(menubyId)
-  console.log(id)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
@@ -56,7 +55,7 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
   }
 
   return (
-    <div className="bg-gray-50">
+    <div>
 
 
       <div>
@@ -104,7 +103,7 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
         </Transition.Root>
 
         <main>
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="mx-auto max-w-3xl p-6 lg:max-w-7xl lg:px-8">
             <div className="pt-20 text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900">Наше меню</h1>
               <p className="mx-auto mt-4 max-w-3xl text-base text-gray-500">
@@ -173,26 +172,8 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
-
-              <ProductsList menu = {menu}/>
-              {/* <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                {menu.menu.map((product) => (
-                  <a key={product.id} href='!#' className="group">
-                    <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg sm:aspect-w-2 sm:aspect-h-3">
-                      <img
-                        src={product.imgSrc}
-                        alt={product.title}
-                        className="h-full w-full object-cover object-center group-hover:opacity-75"
-                      />
-                    </div>
-                    <div className="mt-4 flex items-center justify-between text-base font-medium text-gray-900">
-                      <h3>{product.title}</h3>
-                      <p>{product.price}</p>
-                    </div>
-                    <p className="mt-1 text-sm italic text-gray-500">{product.description}</p>
-                  </a>
-                ))}
-              </div> */}
+              {menu?.menu ? <ProductsList menu = {menu}/> : <Error/>}
+              
             </section>
 
           </div>

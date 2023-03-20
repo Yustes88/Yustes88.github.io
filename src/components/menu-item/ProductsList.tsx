@@ -1,7 +1,6 @@
 import { BakeryMenuItemTypes } from "../../types/types";
 
 export default function ProductsList({menu}: any) {
-  if(menu === undefined) return null;
   return(
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu.map((item: BakeryMenuItemTypes) => (

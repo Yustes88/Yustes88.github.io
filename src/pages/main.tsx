@@ -21,7 +21,6 @@ function Main({data}: MainProps) {
       <Addresses/>
       <FAQ/>
       <ContactUs/>
-      <Footer links={navItems}/>
     </>
   );
 }

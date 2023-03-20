@@ -1,15 +1,14 @@
 import { MantineProvider } from "@mantine/core";
-import { useState } from "react";
 import { Route } from "react-router";
 import { Routes, BrowserRouter } from "react-router-dom";
+import { Footer } from "./components/footer/Footer";
 import Menu from "./components/menu-navigation/Menu";
 import { AppRoute } from "./const";
-import { bakeryMenuData } from "./data/data";
+import { bakeryMenuData, navItems } from "./data/data";
 import Main from "./pages/main";
 import MenuPage from "./pages/menu";
 
 function App() {
-  const [menu, setMenu] = useState(bakeryMenuData[0])
 
 
   return (
@@ -44,6 +43,7 @@ function App() {
         <Route path={AppRoute.Id} element={<MenuPage/>}/>
       </Route>
     </Routes>
+    <Footer links={navItems}/>
     </BrowserRouter>
     </MantineProvider>
   );
