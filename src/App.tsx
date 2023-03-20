@@ -1,12 +1,16 @@
 import { MantineProvider } from "@mantine/core";
 import { Route } from "react-router";
 import { Routes, BrowserRouter } from "react-router-dom";
+import { Footer } from "./components/footer/Footer";
 import Menu from "./components/menu-navigation/Menu";
 import { AppRoute } from "./const";
+import { bakeryMenuData, navItems } from "./data/data";
 import Main from "./pages/main";
 import MenuPage from "./pages/menu";
 
 function App() {
+
+
   return (
     <MantineProvider theme={{
       colors: {
@@ -33,10 +37,13 @@ function App() {
     <Menu/>
     <Routes>
       <Route path={AppRoute.Root}>
-        <Route index element={<Main/>}/>
+        <Route index element={<Main data = {bakeryMenuData} />}/>
       </Route>
-      <Route path={AppRoute.Menu} element={<MenuPage/>}/>
+      <Route path={AppRoute.Menu}>
+        <Route path={AppRoute.Id} element={<MenuPage/>}/>
+      </Route>
     </Routes>
+    <Footer links={navItems}/>
     </BrowserRouter>
     </MantineProvider>
   );

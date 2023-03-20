@@ -1,8 +1,14 @@
 import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import { createStyles, Paper, Title, Button, useMantineTheme } from '@mantine/core';
-import { bakeryMenuData } from '../../data/data';
 import { createRef } from 'react';
+import MenuList from '../bakery-menu/MenuList';
+import { BakeryMenuTypes } from '../../types/types';
+import { Link } from 'react-router-dom';
+
+type CardsCarouselProps = {
+  data: BakeryMenuTypes[];
+}
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -38,7 +44,7 @@ interface CardProps {
   id: string;
 }
 
-function Card({ image, title }: CardProps) {
+function Card({ image, title, id }: CardProps) {
   const { classes } = useStyles();
 
   return (
@@ -54,8 +60,11 @@ function Card({ image, title }: CardProps) {
           {title}
         </Title>
       </div>
+      
       <Button variant='filled' color='green'>
-        Подробнее
+      <Link to={`/menu/${id}`}>
+          <div>Подробнее</div>
+        </Link>
       </Button>
     </Paper>
   );
@@ -63,21 +72,23 @@ function Card({ image, title }: CardProps) {
 
 
 
-export function CardsCarousel() {
+export function CardsCarousel({data}: CardsCarouselProps) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
-  const refs:{[key: string]: any} = bakeryMenuData.reduce((acc: {[key: string]: any}, value) => {
+  const refs:{[key: string]: any} = data.reduce((acc: {[key: string]: any}, value) => {
     acc[value.id] = createRef();
     return acc;
   }, {});
 
-  const handleClick = (id: string) =>
-    refs[id].current.scrollIntoView({
+  const handleClick = (id: string) => {    
+  return refs[id].current.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
-    });
-  const slides = bakeryMenuData.map((item) => (
+    });}
+
+
+  const slides = data.map((item) => (
     <Carousel.Slide key={item.title} ref={refs[item.id]}>
       <Card {...item} />
     </Carousel.Slide>
@@ -86,22 +97,10 @@ export function CardsCarousel() {
   return (
 
     <>
-    <div className="my-2 mx-auto max-w-4xl">
-            <ul className="flex flex-wrap justify-center text-lg leading-8 text-gray-600">
-            {bakeryMenuData.map((item) => {
-              return(
-                  <li className="w-max hover:scale-110 hover:-translate-y-2 transition-all duration-500" key={item.id}>
-                    <button onClick={() => {
-                    handleClick(item.id)
-                  }} className='bg-brown-light-3 inline-block px-3.5 m-1 hover:text-shadow transition-all '>{item.title}
-                  </button></li>
-                  )
-                })}
-            </ul>
-          </div>
+    
+  <MenuList handleClick= {handleClick}/>
 
-          <div className="mx-auto max-w-3xl">
-
+  <div className="mx-auto max-w-3xl">
     <Carousel
       slideSize="51%"
       breakpoints={[{ maxWidth: 'sm', slideSize: '100%', slideGap: 2 }]}

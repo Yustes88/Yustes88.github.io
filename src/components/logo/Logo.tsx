@@ -1,8 +1,10 @@
+import { AppRoute } from "../../const"
+
 function Logo() {
   return(
     <>
     <div className="flex justify-center lg:flex-1 border-b-">
-  <a href="!#">
+  <a href={AppRoute.Root}>
     <span className="sr-only">Мама Волга</span>
     <img
       className="h-20 w-20"

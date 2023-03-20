@@ -1,7 +1,12 @@
+import { BakeryMenuTypes } from "../../types/types";
 import { CardsCarousel } from "../carosel/Carosel";
 
+type BakeryMenuProps = {
+  data: BakeryMenuTypes[]
+}
 
-export default function BakeryMenu() {
+
+export default function BakeryMenu({data}: BakeryMenuProps) {
   
 
 
@@ -17,7 +22,7 @@ export default function BakeryMenu() {
         <div className="mx-auto max-w-7xl pt-4 px-4 sm:px-6 lg:px-8">
           
         
-            <CardsCarousel/>
+            <CardsCarousel data = {data}/>
             
         </div>
       </div>

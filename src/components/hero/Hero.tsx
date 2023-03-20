@@ -1,4 +1,6 @@
 import { Title, Text, Container, Button, Overlay, createStyles } from '@mantine/core';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -116,9 +118,9 @@ export function Hero() {
         </Container>
 
         <div className={classes.controls}>
-          <a href = '/' className={classes.control}>
+          <Link to = {`/menu/1`} className={classes.control}>
             Меню
-          </a>
+          </Link>
           <a href = '/' className={classes.control}>
             Доставка
           </a>

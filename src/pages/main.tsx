@@ -5,19 +5,22 @@ import { DeliveryCards } from "../components/delivery/DeliverCards";
 import FAQ from "../components/faq/FAQ";
 import { Footer } from "../components/footer/Footer";
 import { Hero } from "../components/hero/Hero";
-import Menu from "../components/menu-navigation/Menu";
 import { navItems } from "../data/data";
+import { BakeryMenuTypes } from "../types/types";
 
-function Main() {
+type MainProps = {
+  data: BakeryMenuTypes[]
+}
+
+function Main({data}: MainProps) {
   return (
     <>
       <Hero />
-      <BakeryMenu/>
+      <BakeryMenu data = {data}/>
       <DeliveryCards/>
       <Addresses/>
       <FAQ/>
       <ContactUs/>
-      <Footer links={navItems}/>
     </>
   );
 }

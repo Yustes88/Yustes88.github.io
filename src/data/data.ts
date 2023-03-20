@@ -1,10 +1,11 @@
 import { randomId } from "@mantine/hooks";
+import { AppRoute } from "../const";
 import { BakeryMenuTypes, DeliveryDataTypes, MenuItem } from "../types/types";
 
 const navItems: MenuItem[] = [
   {
   title: 'Меню',
-  src: '/'
+  src: AppRoute.Menu
 },
   {
   title: 'Главная',
@@ -30,13 +31,76 @@ const bakeryMenuData: BakeryMenuTypes[] = [
     image:
       'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
     title: 'Выпечка',
-    id: randomId(),
+    id: '1',
+    menu: [
+    {
+      id: randomId(),
+      title: 'Булочка шоколадная с маком',
+      ingredient: ['Тесто дрожжевое сладкое', 'Мак', 'Сахар', 'Масло раст', 'Ванилин', 'Сироп', 'Ганаш'],
+      price: 125,
+      imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    },
+    {
+      id: randomId(),
+      title: 'Бэккэн с капустой',
+      ingredient: ['Тесто дрожжевое универсальное', 'Начинка (Капуста, масло слив, масло раст, яйцо, соль, перец)'],
+      price: 80,
+      imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    },
+    {
+      id: randomId(),
+      title: 'Булочка шоколадная с маком',
+      ingredient: ['Тесто дрожжевое сладкое', 'Мак', 'Сахар', 'Масло раст', 'Ванилин', 'Сироп', 'Ганаш'],
+      price: 125,
+      imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    },
+    {
+      id: randomId(),
+      title: 'Мини-Губадия',
+      ingredient: ['Тесто песочно-дрожжевое', 'Корт (творог, ряженка, сахар, масло слив)', 'Рис', 'Сахар', 'Яйцо', 'Изюм', 'Масло слив', 'Песочная крошка',],
+      price: 140,
+      description: 'традиционное татарское блюдо, представляющее собой закрытый круглый пирог из сдобного теста с многослойной начинкой из риса, карамелизированного творога и изюма',
+      imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    },
+    {
+      id: randomId(),
+      title: 'Перемячи с говядиной',
+      ingredient: ['Тесто дрожжевое универсальное', 'Фарш говяжий',],
+      price: 110,
+      imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    },
+    ]
   },
   {
     image:
       'https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
     title: 'Пироги',
     id: randomId(),
+    menu: [
+      {
+        id: randomId(),
+        title: 'Пирог Губадия с изюмом/черносливом/курагой',
+        ingredient: ['Тесто песочно-дрожжевое', 'Корт', 'Рис', 'Сахар', 'Яйцо', 'Изюм/курага/чернослив', 'Масло слив', 'Песочная крошка',
+        ],
+        price: 660,
+        description: 'традиционное татарское блюдо, представляющее собой закрытый круглый пирог из сдобного теста с многослойной начинкой из риса, карамелизированного творога и изюма',
+        imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+      },
+      {
+        id: randomId(),
+        title: 'Пирог курица грибы',
+        ingredient: ['Тесто дрожжевое универсальное', 'Начинка (курица, соевый соус, соль, перец, шампиньоны, лук репчатый, майонез', ],
+        price: 450,
+        imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+      },
+      {
+        id: randomId(),
+        title: 'Пирог Расстегай',
+        ingredient: ['Тесто дрожжевое универсальное', 'Начинка (Сом, рис, лук, майонез, соль, перец)'],
+        price: 540,
+        imgSrc: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+      },
+    ]
   },
   {
     image:

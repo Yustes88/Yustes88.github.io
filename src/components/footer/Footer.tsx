@@ -5,9 +5,7 @@ import Logo from '../logo/Logo';
 const useStyles = createStyles((theme) => ({
   footer: {
     // marginTop: rem(120),
-    borderTop: `${rem(1)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
+    borderTop: `${rem(1)} solid ${theme.colors.brown[4]}`,
   },
 
   inner: {

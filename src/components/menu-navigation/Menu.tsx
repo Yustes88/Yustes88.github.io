@@ -8,6 +8,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Logo from "../logo/Logo";
 import MenuNav from "./MenuNav";
 import { bakeryMenuData, navItems } from "../../data/data";
+import { Link } from "react-router-dom";
 
 
 function classNames(...classes: any) {
@@ -29,14 +30,11 @@ function Menu() {
           </div>
           <Popover.Group as="nav" className="hidden space-x-10 md:flex">
             <Popover className="relative">
-              {({ open }) => (
+              {({ open, close }) => (
                 <>
                   <Popover.Button
-                    className={classNames(
-                      open ? "text-brown bg-brown-light-3" : "text-brown bg-brown-light-3",
-                      "group inline-flex items-center rounded-md font-medium hover:text-gray-900 focus:outline-none focus:ring-1 focus:ring-brown focus:ring-offset-2 text-base max-w-sm font-medium leading-tight"
-                    )}
-                  >
+                    className="text-brown bg-brown-light-3 group inline-flex items-center rounded-md font-medium hover:text-gray-900 focus:outline-none focus:ring-1 focus:ring-brown focus:ring-offset-2 text-base max-w-sm font-medium leading-tight"
+                    >
                     <span className="bg-transparent link link-underline link-underline-brown-light-3">
                       {navItems.map((item) => {
                         return item.title === 'Меню' ? 'Меню' : ''
@@ -64,9 +62,10 @@ function Menu() {
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-brown ring-opacity-25">
                         <div className="relative grid gap-6 bg-brown-light-3 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                           {bakeryMenuData.map((item) => (
-                            <a
+                            <button onClick={() => close()}>
+                            <Link
                               key={item.title}
-                              href='!#'
+                              to={`/menu/${item.id}`}
                               className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50 "
                             >
                               {/* <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
@@ -80,7 +79,8 @@ function Menu() {
                                   {item.title}
                                 </p>
                               </div>
-                            </a>
+                            </Link>
+                            </button>
                           ))}
                         </div>
                       </div>
