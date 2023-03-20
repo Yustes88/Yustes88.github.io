@@ -9,7 +9,7 @@ export default function ProductsList({menu}: any) {
                   <img
                     src={item.imgSrc}
                     alt={item.title}
-                    className="h-full w-full object-cover object-center img-content"
+                    className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <div className="hidden">

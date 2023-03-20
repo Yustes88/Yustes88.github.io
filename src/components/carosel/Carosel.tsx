@@ -61,11 +61,10 @@ function Card({ image, title, id }: CardProps) {
         </Title>
       </div>
       
-      <Link to={`/menu/${id}`}>
-          <div>Click here!!!!</div>
-        </Link>
       <Button variant='filled' color='green'>
-        Подробнее
+      <Link to={`/menu/${id}`}>
+          <div>Подробнее</div>
+        </Link>
       </Button>
     </Paper>
   );

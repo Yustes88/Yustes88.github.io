@@ -52,7 +52,13 @@
   @media(hover: none) {
     .card .hidden{
       opacity: 1;
-      font-size: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .card:hover img, .card:focus-within img {
+      transform: scale(1.1);
+      filter: brightness(70%);
+  
     }
   }
 }
