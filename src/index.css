@@ -6,10 +6,6 @@
   .card {
     position: relative;
   }
-
-  .card img {
-    object-fit: cover;
-  }
   
   .card * {
     transition: all 1s;
@@ -21,21 +17,19 @@
     line-height: 1.5;
   }
   
-  .hidden {
-    display: none;
-  }
-
-  .card.hidden-text {
-    opacity: 0;
-  }
-  
-  .card:hover .hidden, .card:focus-within .hidden{
+  .card .hidden {
     display: block;
+    opacity: 0;
     position: absolute;
     top: 5%;
     left: 1%;
     color: white;
+    padding: 1.5rem;
     translate: transform(50%, -50%);
+  }
+
+  
+  .card:hover .hidden{
     opacity: 1;
   }
   
@@ -45,10 +39,10 @@
 
   }
 
-  .card:hover .card.hidden-text, .card:focus-within .card.hidden-text {
+  .img-content:hover + .hidden {
+    display: block;
     opacity: 1;
   }
-
   
   .card:hover h2, .card:focus-within h2 {
     padding: 8px 12px 0;

@@ -10,8 +10,11 @@ export default function ProductsList({menu}: any) {
                   <img
                     src={item.imgSrc}
                     alt={item.title}
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-cover object-center img-content"
                   />
+                </div>
+                <div className="hidden">
+                  {item.ingredient.join(', ')}
                 </div>
                 <div className="flex justify-between items-center">
                 <h3 className="mt-2 text-base font-semibold text-gray-900 ">
@@ -21,9 +24,6 @@ export default function ProductsList({menu}: any) {
                 </div>
                 <p className="my-4 text-gray-500">{item.description}</p>
 
-                <div className="hidden">
-                  <h2 className="hidden-text">{item.ingredient.join(', ')}</h2>
-                </div>
               </div>
             ))}
           </div>
