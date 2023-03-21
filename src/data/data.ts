@@ -5,15 +5,15 @@ import { BakeryMenuTypes, DeliveryDataTypes, MenuItem } from "../types/types";
 const navItems: MenuItem[] = [
   {
   title: 'Меню',
-  src: AppRoute.Menu
+  src: AppRoute.Menu,
 },
   {
   title: 'Главная',
-  src: '/'
+  src: AppRoute.Root,
 },
   {
   title: 'О нас',
-  src: '/'
+  src: AppRoute.About,
 },
   {
   title: 'Доставка',
@@ -191,4 +191,38 @@ const DeliveryData: DeliveryDataTypes[] = [
   }
 ]
 
-export {navItems, bakeryMenuData, DeliveryData};
+
+const AboutImages = [
+  {
+    id: randomId(),
+    imgUrl: '/about/kids.jpg',
+    alt: 'Дети в пекарне'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/making.jpg',
+    alt: 'Фото теста'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/pie.jpg',
+    alt: 'Фото пирога'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/sonya.jpg',
+    alt: 'Соня с пирогом'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/team.jpg',
+    alt: 'Команда пекарни'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/girls.jpg',
+    alt: 'Девушки в пекарне'
+  },
+]
+
+export {navItems, bakeryMenuData, DeliveryData, AboutImages};

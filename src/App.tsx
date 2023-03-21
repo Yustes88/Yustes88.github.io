@@ -5,6 +5,7 @@ import { Footer } from "./components/footer/Footer";
 import Menu from "./components/menu-navigation/Menu";
 import { AppRoute } from "./const";
 import { bakeryMenuData, navItems } from "./data/data";
+import AboutPage from "./pages/about";
 import Main from "./pages/main";
 import MenuPage from "./pages/menu";
 
@@ -42,6 +43,7 @@ function App() {
       <Route path={AppRoute.Menu}>
         <Route path={AppRoute.Id} element={<MenuPage/>}/>
       </Route>
+      <Route path={AppRoute.About} element={<AboutPage/>}/>
     </Routes>
     <Footer links={navItems}/>
     </BrowserRouter>
