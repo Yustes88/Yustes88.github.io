@@ -56,10 +56,9 @@ export function Footer({ links }: FooterCenteredProps) {
 
         <Group spacing="xs" position="right" noWrap>
           <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandTwitter size="1.05rem" stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandYoutube size="1.05rem" stroke={1.5} />
+          <a target='_blank' rel="noreferrer" href="https://vk.com/club59468601">
+                        VK
+          </a>
           </ActionIcon>
           <ActionIcon size="lg" variant="default" radius="xl">
             <IconBrandInstagram size="1.05rem" stroke={1.5} />
