@@ -3,9 +3,7 @@ import BakeryMenu from "../components/bakery-menu/BakeryMenu";
 import { ContactUs } from "../components/contact-us/ContactUs";
 import { DeliveryCards } from "../components/delivery/DeliverCards";
 import FAQ from "../components/faq/FAQ";
-import { Footer } from "../components/footer/Footer";
 import { Hero } from "../components/hero/Hero";
-import { navItems } from "../data/data";
 import { BakeryMenuTypes } from "../types/types";
 
 type MainProps = {
