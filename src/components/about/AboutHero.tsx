@@ -2,6 +2,7 @@ import { AboutImages } from "../../data/data";
 
 export default function AboutHero() {
   return(
+    <div className="relative before:bg-clip">
     <div className="relative isolate -z-10">
     <div className="overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 pb-5">
@@ -14,7 +15,7 @@ export default function AboutHero() {
               Здесь какой-нибудь прикольный текст про вас. Может быть ваши традиции, или ценности, или какая-нибудь краткая история появления вашей пекарни. Ну вы поняли.
             </p>
           </div>
-          <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+          <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0 z-100">
             <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
               <div className="relative">
                 <img
@@ -44,7 +45,7 @@ export default function AboutHero() {
               </div>
             </div>
             <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-              <div className="relative">
+              <div className="relative ">
                 <img
                   src={AboutImages[3].imgUrl}
                   alt={AboutImages[3].alt}
@@ -65,6 +66,7 @@ export default function AboutHero() {
         </div>
       </div>
     </div>
+  </div>
   </div>
   )
 }
