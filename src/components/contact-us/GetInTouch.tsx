@@ -71,19 +71,18 @@ export default function GetInTouch() {
         </div>
       </div>
     </div>
-    <div className="rounded-2xl bg-gray-50 p-10 text-center">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">Или напишите нам и мы сами с Вами свяжемся</h3>
+    <div className="rounded-2xl bg-gray-50 text-center">
+                <h3 className="text-base font-semibold leading-7 text-gray-900">
+                  Или напишите нам и мы сами с Вами свяжемся</h3>
                 <div className="pt-6">
-                <ScrollButton onClick={handleClick}/>
+                  {showComponent ? <button className="animate-bounce" onClick={() => setShowComponent(false)}>Скрыть</button> : <ScrollButton onClick={handleClick}/>}
                 </div>
               </div>
     </div>
 
-<div ref={scrollRef}>
-    <div className={showComponent ? 'block' : 'hidden'} >
+    <div className={showComponent ? 'block' : 'hidden'} ref={scrollRef} >
       <ContactUs/>
     </div>
-</div>
     </>
   )
 }
