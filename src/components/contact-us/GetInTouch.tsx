@@ -75,7 +75,7 @@ export default function GetInTouch() {
                 <h3 className="text-base font-semibold leading-7 text-gray-900">
                   Или напишите нам и мы сами с Вами свяжемся</h3>
                 <div className="pt-6">
-                  {showComponent ? <button className="animate-bounce" onClick={() => setShowComponent(false)}>Скрыть</button> : <ScrollButton onClick={handleClick}/>}
+                  {showComponent ? <button className="rounded-full p-2 text-brown shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown-noir animate-bounce" onClick={() => setShowComponent(false)}>Скрыть</button> : <ScrollButton onClick={handleClick}/>}
                 </div>
               </div>
     </div>
