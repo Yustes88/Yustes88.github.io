@@ -1,5 +1,22 @@
+import { useRef, useState } from "react"
+import ScrollButton from "../buttons/ScrollButton"
+import { ContactUs } from "./ContactUs"
+
 export default function GetInTouch() {
+  const [showComponent, setShowComponent] = useState(false)
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+
+  const handleClick = () => {
+    setShowComponent(!showComponent)
+    if (scrollRef.current !== null) {
+      setTimeout(() => scrollRef.current?.scrollIntoView({ block: "center", behavior:  'smooth' }));
+    }
+  }
+
+
   return (
+    <>
     <div className="relative before:bg-clip">
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -54,6 +71,19 @@ export default function GetInTouch() {
         </div>
       </div>
     </div>
+    <div className="rounded-2xl bg-gray-50 p-10 text-center">
+                <h3 className="text-base font-semibold leading-7 text-gray-900">Или напишите нам и мы сами с Вами свяжемся</h3>
+                <div className="pt-6">
+                <ScrollButton onClick={handleClick}/>
+                </div>
+              </div>
     </div>
+
+<div ref={scrollRef}>
+    <div className={showComponent ? 'block' : 'hidden'} >
+      <ContactUs/>
+    </div>
+</div>
+    </>
   )
 }
