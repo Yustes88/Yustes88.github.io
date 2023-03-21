@@ -5,15 +5,15 @@ import { BakeryMenuTypes, DeliveryDataTypes, MenuItem } from "../types/types";
 const navItems: MenuItem[] = [
   {
   title: 'Меню',
-  src: AppRoute.Menu
+  src: AppRoute.Menu,
 },
   {
   title: 'Главная',
-  src: '/'
+  src: AppRoute.Root,
 },
   {
   title: 'О нас',
-  src: '/'
+  src: AppRoute.About,
 },
   {
   title: 'Доставка',
@@ -191,4 +191,66 @@ const DeliveryData: DeliveryDataTypes[] = [
   }
 ]
 
-export {navItems, bakeryMenuData, DeliveryData};
+
+const AboutImages = [
+  {
+    id: randomId(),
+    imgUrl: '/about/kids.jpg',
+    alt: 'Дети в пекарне'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/making.jpg',
+    alt: 'Фото теста'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/pie.jpg',
+    alt: 'Фото пирога'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/sonya.jpg',
+    alt: 'Соня с пирогом'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/team.jpg',
+    alt: 'Команда пекарни'
+  },
+  {
+    id: randomId(),
+    imgUrl: '/about/girls.jpg',
+    alt: 'Девушки в пекарне'
+  },
+]
+
+const values = [
+  {
+    name: 'Натуральные продукты',
+    description:
+      'Только натуральные продукты, как будто из деревенской глубинки. А наш старший технолог строго следит за тем, чтобы к Вашему столу попали самые вкусные и румяные пирожки.',
+  },
+  {
+    name: 'Национальные рецепты',
+    description:
+      'Команда «Мамы Волги» специально ездила на обучение в Казань, познать все тонкости традиционной рецептуры. Чтобы привезти кусочек татарского солнца в Северную столицу',
+  },
+  {
+    name: 'Знакомый вкус',
+    description:
+      'Кроме традиционной еды, у нас есть пирожки с луком и яйцом, с капустой, с вишней и многие другие любимые с детства. А особая гордость - пирожки с сомом, которые мы сами придумали!',
+  },
+]
+
+const team = [
+  {
+    name: 'Галина',
+    role: 'Управляющая "Мамы Волги"',
+    imageUrl:
+      '/people/galina.jpg',
+  },
+  // More people...
+]
+
+export {navItems, bakeryMenuData, DeliveryData, AboutImages, values, team};

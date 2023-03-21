@@ -3,4 +3,5 @@ export enum AppRoute {
   NotFound = '*',
   Menu = 'menu',
   Id = ':id',
+  About = 'about',
 }
