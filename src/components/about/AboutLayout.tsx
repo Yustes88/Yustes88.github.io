@@ -1,33 +1,6 @@
-import { AboutImages } from "../../data/data"
 import AboutHero from "./AboutHero"
+import AboutValues from "./AboutValues"
 
-const values = [
-  {
-    name: 'Натуральные продукты',
-    description:
-      'Для приготовления блюд мы используем только натуральные продукты, как будто из деревенской глубинки. А наш старший технолог строго следит за тем, чтобы к вашему столу попали самые вкусные и румяные пирожки.',
-  },
-  {
-    name: 'Национальные рецепты',
-    description:
-      'Команда «Мамы Волги» специально ездила на обучение в Казань, познать все тонкости традиционной рецептуры. Чтобы привезти кусочек татарского солнца в Северную столицу.Печёный Эчпочмак, сочная Самса, многослойный пирог Губадия и медовый Чак-чак и ещё много чем, нам есть чем тебя удивить!',
-  },
-  {
-    name: 'Знакомый вкус',
-    description:
-      'Кроме традиционной еды, у нас есть пирожки с луком и яйцом, с капустой, с вишней и многие другие любимые с детства. А особую гордость вызывают пирожки с сомом, которые мы сами придумали!',
-  },
-  {
-    name: 'Делаем с любовью',
-    description:
-      'Sit minus expedita quam in ullam molestiae dignissimos in harum. Tenetur dolorem iure. Non nesciunt dolorem veniam necessitatibus laboriosam voluptas perspiciatis error.',
-  },
-  {
-    name: 'Заботимся о качестве',
-    description:
-      'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.',
-  },
-]
 const team = [
   {
     name: 'Галина',
@@ -68,22 +41,7 @@ export default function AboutLayout() {
         <AboutHero/>
 
         {/* Values section */}
-        <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8 ">
-          <div className="mx-auto max-w-2xl lg:mx-0 ">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Традиции во всём</h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
- Любимые, «Мама Волга» готовит с уважением к традициям только из натуральных продуктов и по национальным рецептам с исключительной любовью к своим гостям ❤ 
-            </p>
-          </div>
-          <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {values.map((value) => (
-              <div key={value.name}>
-                <dt className="font-semibold text-gray-900">{value.name}</dt>
-                <dd className="mt-1 text-gray-600">{value.description}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <AboutValues/>
 
         {/* Team section */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">

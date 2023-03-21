@@ -225,4 +225,32 @@ const AboutImages = [
   },
 ]
 
-export {navItems, bakeryMenuData, DeliveryData, AboutImages};
+const values = [
+  {
+    name: 'Натуральные продукты',
+    description:
+      'Для приготовления блюд мы используем только натуральные продукты, как будто из деревенской глубинки. А наш старший технолог строго следит за тем, чтобы к вашему столу попали самые вкусные и румяные пирожки.',
+  },
+  {
+    name: 'Национальные рецепты',
+    description:
+      'Команда «Мамы Волги» специально ездила на обучение в Казань, познать все тонкости традиционной рецептуры. Чтобы привезти кусочек татарского солнца в Северную столицу.Печёный Эчпочмак, сочная Самса, многослойный пирог Губадия и медовый Чак-чак и ещё много чем, нам есть чем тебя удивить!',
+  },
+  {
+    name: 'Знакомый вкус',
+    description:
+      'Кроме традиционной еды, у нас есть пирожки с луком и яйцом, с капустой, с вишней и многие другие любимые с детства. А особую гордость вызывают пирожки с сомом, которые мы сами придумали!',
+  },
+  {
+    name: 'Делаем с любовью',
+    description:
+      'Sit minus expedita quam in ullam molestiae dignissimos in harum. Tenetur dolorem iure. Non nesciunt dolorem veniam necessitatibus laboriosam voluptas perspiciatis error.',
+  },
+  {
+    name: 'Заботимся о качестве',
+    description:
+      'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.',
+  },
+]
+
+export {navItems, bakeryMenuData, DeliveryData, AboutImages, values};
