@@ -91,7 +91,7 @@
   bottom:0;
   clip-path: polygon(0 22%, 100% 0%, 100% 77%, 0% 100%);
   /* height: 110vh; */
-  background-image: linear-gradient(-60deg, #e6cfce 0%, #bc9190 100%);
+  background-image: linear-gradient(-60deg, rgba(145, 105, 83, 0.2) 0%, #ffecec 100%);
   }
  }
 
@@ -114,7 +114,7 @@
 
   
 	.link-underline-brown {
-    background-image: linear-gradient(transparent, transparent), linear-gradient(#7A5C52, #7A5C52);
+    background-image: linear-gradient(transparent, transparent), linear-gradient(#01a57f, #01a57f);
 	}
   
 	.link-underline:hover {

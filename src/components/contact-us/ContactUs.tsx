@@ -16,9 +16,7 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     minHeight: 400,
     boxSizing: 'border-box',
-    backgroundImage: `linear-gradient(-60deg, ${theme.colors.brown[1]} 0%, ${
-      theme.colors.brown[3]
-    } 100%)`,
+    backgroundImage: `linear-gradient(-60deg, rgba(145, 105, 83, 0.2) 0%, #ffecec 100%)`,
     // borderRadius: theme.radius.md,
     padding: `calc(${theme.spacing.xl} * 2.5)`,
 
@@ -32,17 +30,14 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: `calc(${theme.spacing.xl} * 2.5)`,
-    color: theme.white,
   },
 
   subtitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    color: theme.white,
     lineHeight: 1,
   },
 
   description: {
-    color: theme.colors[theme.primaryColor][0],
     maxWidth: rem(300),
 
     [theme.fn.smallerThan('sm')]: {

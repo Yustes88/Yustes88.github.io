@@ -13,8 +13,8 @@ module.exports = {
       'brown': {
         DEFAULT: '#612F18',
         'light-1': '#967E6C',
-        'light-2': '#EAE1D3',
         'light-3': '#ffecec',
+        'row': '#91695333',
 
       },
       'red': {
