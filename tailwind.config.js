@@ -11,18 +11,10 @@ module.exports = {
   theme: {
     colors: {
       'brown': {
-        'coffee-1': '#7A5C52',
-        'coffee-2': '#674A41',
-        DEFAULT: '#5D3937',
-        lion: '',
-        coyote: '#746451',
-        noir: '#4D3C29',
-        chamoisee: '#8B7961',
+        DEFAULT: '#612F18',
         'light-1': '#967E6C',
         'light-2': '#EAE1D3',
         'light-3': '#ffecec',
-        'taupe-1': '#534032',
-        'taupe-2': '#403428',
 
       },
       'red': {
@@ -30,7 +22,7 @@ module.exports = {
         rusty: '#C83C4B',
       }, 
       'green': {
-        moss: '#858E69',
+        DEFAULT: '#4dc0a5',
       },
       'dark': {
         'dark-purple': '#210F1F',

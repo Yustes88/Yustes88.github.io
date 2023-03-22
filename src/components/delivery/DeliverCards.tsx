@@ -121,7 +121,7 @@ export function DeliveryCards() {
         {features}
 
         <div className='flex items-center'>
-        <Button color='green' className='animate-pulse flex-1'>Оформить доставку <span className='pl-2'>&#10141;</span> </Button>
+        <Button color='green' className='animate-pulse flex-1 bg-green'>Оформить доставку <span className='pl-2'>&#10141;</span> </Button>
         </div>
       </SimpleGrid>
     </Container>
