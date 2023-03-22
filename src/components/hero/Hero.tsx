@@ -62,6 +62,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     paddingLeft: theme.spacing.md,
     paddingRight: theme.spacing.md,
+    paddingTop: theme.spacing.md,
 
     '@media (max-width: 520px)': {
       flexDirection: 'column',
@@ -74,14 +75,14 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(133, 142, 105, 0.4) !important',
+    backgroundColor: 'rgba(1, 132, 102, 0.4) !important',
     height: 42,
     fontSize: theme.fontSizes.md,
     color: theme.white,
     borderRadius: '3px',
 
     '&:hover': {
-      backgroundColor: 'rgba(133, 142, 105, 0.7) !important',
+      backgroundColor: 'rgba(1, 132, 102, 0.7) !important',
     },
 
     '&:not(:first-of-type)': {
