@@ -36,6 +36,9 @@ module.exports = {
 
       }
     },
+    fontFamily: {
+      'body': ['Roboto Slab'],
+    },
     extend: {},
   },
   plugins: [

@@ -25,6 +25,7 @@ function App() {
           'red': ['#ffe3eb', '#ffb2c2', '#fd8199', '#fb5171', '#f92248', '#df0a2f', '#ae0424', '#7e011a', '#4d000e', '#1f0003',
           ]
       },
+      'fontFamily': 'Roboto Slab, serif',
       components: {
         Container: {
           defaultProps: {
