@@ -113,7 +113,7 @@
  }
 
   
-	.link-underline-brown {
+	.link-underline-green {
     background-image: linear-gradient(transparent, transparent), linear-gradient(#01a57f, #01a57f);
 	}
   
@@ -121,6 +121,12 @@
     padding-bottom: 0.3rem;
     background-size: 100% 2px;
 		background-position: 50% 100%;
+	}
+
+  .link-active {
+    padding-bottom: 0.3rem;
+    border-bottom-width: 2px;
+    border-bottom-color: #01a57f;
 	}
 
   button {

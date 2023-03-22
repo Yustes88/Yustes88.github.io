@@ -17,7 +17,7 @@ const navItems: MenuItem[] = [
 },
   {
   title: 'Доставка',
-  src: '/'
+  src: AppRoute.Delivery,
 },
   {
   title: 'Контакты',
