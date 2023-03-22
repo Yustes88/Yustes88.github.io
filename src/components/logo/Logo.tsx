@@ -8,7 +8,7 @@ function Logo() {
     <span className="sr-only">Мама Волга</span>
     <img
       className="h-20 w-20"
-      src='/logo-volga.png'
+      src='icon/logo-volga.png'
       alt="Mama Volga logo"
     />
   </a>

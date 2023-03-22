@@ -1,6 +1,5 @@
-import { Title, Text, Container, Button, Overlay, createStyles } from '@mantine/core';
+import { Title, Text, Container, Overlay, createStyles } from '@mantine/core';
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -8,7 +7,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: 180,
     paddingBottom: 130,
     backgroundImage:
-      'url(/bg.jpg)',
+      'url(bg/bg.jpg)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
