@@ -10,7 +10,7 @@ import {
   ActionIcon,
   rem,
 } from '@mantine/core';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
+import { IconBrandInstagram } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -89,16 +89,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 
 export function ContactUs() {
   const { classes } = useStyles();
-
-  const icons = social.map((Icon, index) => (
-    <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
-      <Icon size="1.4rem" stroke={1.5} />
-    </ActionIcon>
-  ));
 
   return (
     <div className={classes.wrapper}>
@@ -112,7 +105,16 @@ export function ContactUs() {
 
           {/* <ContactIconsList variant="white" /> */}
 
-          <Group mt="xl">{icons}</Group>
+          <Group mt="xl">
+          <ActionIcon size="lg" variant="default" radius="xl">
+          <a target='_blank' rel="noreferrer" href="https://vk.com/club59468601">
+                        VK
+          </a>
+          </ActionIcon>
+          <ActionIcon size="lg" variant="default" radius="xl">
+            <IconBrandInstagram size="1.05rem" stroke={1.5} />
+          </ActionIcon>
+          </Group>
         </div>
         <div className={classes.form}>
           <TextInput

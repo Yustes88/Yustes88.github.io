@@ -21,7 +21,7 @@ const navItems: MenuItem[] = [
 },
   {
   title: 'Контакты',
-  src: '/'
+  src: AppRoute.Contacts,
 },
 ];
 

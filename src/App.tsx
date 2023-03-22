@@ -6,6 +6,7 @@ import Menu from "./components/menu-navigation/Menu";
 import { AppRoute } from "./const";
 import { bakeryMenuData, navItems } from "./data/data";
 import AboutPage from "./pages/about";
+import ContactsPage from "./pages/contacts";
 import Main from "./pages/main";
 import MenuPage from "./pages/menu";
 
@@ -44,6 +45,7 @@ function App() {
         <Route path={AppRoute.Id} element={<MenuPage/>}/>
       </Route>
       <Route path={AppRoute.About} element={<AboutPage/>}/>
+      <Route path={AppRoute.Contacts} element={<ContactsPage/>}/>
     </Routes>
     <Footer links={navItems}/>
     </BrowserRouter>
