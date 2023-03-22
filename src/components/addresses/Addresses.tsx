@@ -11,8 +11,8 @@ export default function Addresses() {
     <div className="bg-white pt-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-2xl m-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900">Наши адреса</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <h2 className="text-3xl font-bold tracking-tight text-brown">Наши адреса</h2>
+          <p className="mt-6 text-lg leading-8 text-brown">
             Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
             laoreet diam sed lacus, fames.
           </p>

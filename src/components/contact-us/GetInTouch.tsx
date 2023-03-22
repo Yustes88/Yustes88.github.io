@@ -18,24 +18,24 @@ export default function GetInTouch() {
   return (
     <>
     <div className="relative before:bg-clip">
-    <div className="bg-white py-24 sm:py-32">
+    <div className="py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
             <div>
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900">Свяжитесь с нами</h2>
-              <p className="mt-4 leading-7 text-gray-600">
+              <h2 className="text-3xl font-bold tracking-tight text-brown">Свяжитесь с нами</h2>
+              <p className="mt-4 leading-7 text-brown">
                 Quam nunc nunc eu sed. Sed rhoncus quis ultricies ac pellentesque.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
               <div className="rounded-2xl bg-gray-50 p-10">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">Напишите нам на почту</h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <h3 className="text-base font-semibold leading-7 text-brown">Напишите нам на почту</h3>
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-brown">
                   <div>
                     <dt className="sr-only">Email</dt>
                     <dd>
-                      <a className="font-semibold text-indigo-600" href="mailto:collaborate@example.com">
+                      <a className="font-semibold text-brown" href="mailto:collaborate@example.com">
                         mamaVolga@example.com
                       </a>
                     </dd>
@@ -43,8 +43,8 @@ export default function GetInTouch() {
                 </dl>
               </div>
               <div className="rounded-2xl bg-gray-50 p-10">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">Свяжитесь с нами по телефону</h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <h3 className="text-base font-semibold leading-7 text-brown">Свяжитесь с нами по телефону</h3>
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-brown">
                   <div className="mt-1">
                     <dt className="sr-only">Phone number</dt>
                     <dd>
@@ -54,8 +54,8 @@ export default function GetInTouch() {
                 </dl>
               </div>
               <div className="rounded-2xl bg-gray-50 p-10">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">Посетите нашу группу ВК</h3>
-                <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                <h3 className="text-base font-semibold leading-7 text-brown">Посетите нашу группу ВК</h3>
+                <dl className="mt-3 space-y-1 text-sm leading-6 text-brown">
                   <div>
                     <dt className="sr-only">VK</dt>
                     <dd>
@@ -72,7 +72,7 @@ export default function GetInTouch() {
       </div>
     </div>
     <div className="rounded-2xl bg-gray-50 text-center">
-                <h3 className="text-base font-semibold leading-7 text-gray-900">
+                <h3 className="text-2xl font-semibold leading-7 text-gray-900">
                   Или напишите нам и мы сами с Вами свяжемся</h3>
                 <div className="pt-6">
                   {showComponent ? <button className="rounded-full p-2 text-brown shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brown-noir" onClick={() => setShowComponent(false)}>Скрыть</button> : <ScrollButton onClick={handleClick}/>}
