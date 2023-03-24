@@ -15,8 +15,8 @@ function AddressList({data, setAddressId, addressById}: AddressListProps) {
       return(
         <button className={`hover:scale-110 hover-1 transition-all duration-300 ${isSelected ? 'selected' : ''}`} onClick = {() => setAddressId(item)} key={item.id}>
     <div className="py-1 border-l border-black">
-            <h3 className="pl-6 font-semibold text-gray-900 ">{item.title}</h3>
-            <address className="pt-2 pl-6 not-italic text-gray-600">
+            <h3 className="pl-6 font-semibold text-brown ">{item.title}</h3>
+            <address className="pt-2 pl-6 not-italic text-brown">
               <p>{item.addressShort}</p>
             </address>
           </div>

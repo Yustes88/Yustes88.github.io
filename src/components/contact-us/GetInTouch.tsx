@@ -71,7 +71,7 @@ export default function GetInTouch() {
         </div>
       </div>
     </div>
-    <div className="rounded-2xl bg-gray-50 text-center">
+    <div className="rounded-2xl bg-gray-50 text-center px-6 lg:px-8">
                 <h3 className="text-2xl font-semibold leading-7 text-gray-900">
                   Или напишите нам и мы сами с Вами свяжемся</h3>
                 <div className="pt-6">

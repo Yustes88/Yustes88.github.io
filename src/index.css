@@ -76,7 +76,7 @@
 
  @layer utilities {
   .text-shadow {
-    text-shadow: 0 0 .8px #7A5C52, 0 0 .8px #7A5C52;
+    text-shadow: 0 0 .8px #533f3c, 0 0 .8px #533f3c;
   }
  } 
 
@@ -173,6 +173,7 @@ body {
   margin: 0; /* 1 */
   line-height: inherit; /* 2 */
   background-color: #ffecec;
+  color: #423230;
 }
 
 /*

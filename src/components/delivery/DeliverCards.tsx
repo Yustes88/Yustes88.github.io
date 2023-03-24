@@ -49,7 +49,8 @@ const useStyles = createStyles((theme) => ({
   description: {
     maxWidth: 600,
     margin: 'auto',
-
+    color: theme.colors.brown[7],
+    
     '&::after': {
       content: '""',
       display: 'block',
@@ -61,14 +62,15 @@ const useStyles = createStyles((theme) => ({
       marginRight: 'auto',
     },
   },
-
+  
   card: {
+    color: theme.colors.brown[7],
     border: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
     }`,
     transition: 'all 0.3s',
     ':hover': {
-      transform: 'scale(1.1)'
+      transform: 'scale(1.05)'
     }
   },
 
