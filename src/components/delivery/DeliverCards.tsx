@@ -7,7 +7,6 @@ import {
   SimpleGrid,
   Container,
   Button,
-  Group,
 } from '@mantine/core';
 
 const mockdata = [

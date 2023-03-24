@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -35,7 +35,7 @@ function Menu() {
                   <Popover.Button
                     className="text-brown bg-brown-light-3 group inline-flex items-center rounded-md font-medium hover:text-gray-900 focus:outline-none focus:ring-1 focus:ring-brown focus:ring-offset-2 text-base max-w-sm font-medium leading-tight"
                     >
-                    <span className="bg-transparent link link-underline link-underline-brown-light-3">
+                    <span className="bg-transparent link link-underline link-underline-green">
                       {navItems.map((item) => {
                         return item.title === 'Меню' ? 'Меню' : ''
                       })}
@@ -75,7 +75,7 @@ function Menu() {
                                 />
                               </div> */}
                               <div className="ml-4">
-                                <p className="text-base font-medium text-gray-900 link link-underline link-underline-brown">
+                                <p className="text-base font-medium text-gray-900 link link-underline link-underline-green">
                                   {item.title}
                                 </p>
                               </div>
@@ -122,16 +122,10 @@ function Menu() {
                     {navItems.map((item) => (
                       <a
                         key={item.title}
-                        href={item.src}
-                        className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50 justify-center"
+                        href={item.src === '/menu' ? `/menu/1` : item.src}
+                        className="-m-3 flex items-center rounded-lg p-3 justify-center"
                       >
-                        {/* <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white">
-                          <solution.icon
-                            className="h-6 w-6"
-                            aria-hidden="true"
-                          />
-                        </div> */}
-                        <div className="ml-4 text-base font-medium text-gray-900 link link-underline link-underline-brown">
+                        <div className="ml-4 text-base font-medium text-gray-900 link link-underline link-underline-green">
                           {item.title}
                         </div>
                       </a>
