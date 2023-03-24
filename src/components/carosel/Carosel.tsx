@@ -22,16 +22,16 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontFamily: `${theme.fontFamily}, Greycliff CF`,
     fontWeight: 900,
-    color: theme.white,
+    color: theme.colors.brown[0],
     lineHeight: 1.2,
     fontSize: 32,
     marginTop: theme.spacing.xs,
   },
-
+  
   category: {
-    color: theme.white,
+    color: theme.colors.brown[0],
     opacity: 0.7,
     fontWeight: 700,
     textTransform: 'uppercase',

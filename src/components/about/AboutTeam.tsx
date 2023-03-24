@@ -3,7 +3,7 @@ import { team } from "../../data/data";
 export default function AboutTeam() {
   return(
     <div className="relative before:bg-clip">
-    <div className="mx-auto mt-20 max-w-7xl pt-6 pb-10 sm:mt-48">
+    <div className="mx-auto mt-20 max-w-7xl pt-6 pb-10 sm:mt-48 px-6 lg:px-8">
     <div className="mx-auto max-w-2xl lg:mx-0">
       <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Наша команда</h2>
       <p className="mt-6 text-lg leading-8 text-gray-600">

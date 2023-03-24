@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     colors: {
       'brown': {
-        DEFAULT: '#612F18',
+        DEFAULT: '#533f3c',
         'light-1': '#967E6C',
         'light-3': '#ffecec',
         'row': '#91695333',
