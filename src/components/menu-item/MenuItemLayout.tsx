@@ -13,7 +13,7 @@
   }
   ```
 */
-import { Fragment, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
@@ -45,12 +45,12 @@ type MenuItemLayoutProps = {
 }
 
 export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
-  const menubyId = getMenuById(id, bakeryData)
+  const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
+  const menubyId = getMenuById(id, data)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
   const [openAddMenu, setOpenAddMenu] = useState(false)
-  const [data, setData] = useState<BakeryMenuTypes[]>([])
 
   const setModalIsOpenToTrue =()=>{
     console.log('modal is open!')
@@ -58,7 +58,7 @@ export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
 }
   
   const handleClick = (id: string) => {    
-  return bakeryData.filter((item) => {
+  return data.filter((item) => {
     return item.id === id ? setMenu(item) : null;
   }) 
   }
@@ -121,7 +121,7 @@ export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick} data={bakeryData}/>
+            <MenuList handleClick={handleClick} data={data}/>
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -194,6 +194,8 @@ export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
           <AddMenu
                 open={openAddMenu}
                 setOpen={setOpenAddMenu}
+                data={data}
+                setData={setData}
               />
           </div>
         </main>

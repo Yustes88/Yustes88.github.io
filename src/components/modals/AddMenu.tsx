@@ -1,26 +1,28 @@
 import { TextInput, Group, Box, Text, Button, Title } from '@mantine/core';
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-// import { BakeryMenuTypes } from '../../types/types';
+import { useForm } from '@mantine/form';
+import { randomId } from '@mantine/hooks';
+import { BakeryMenuTypes } from '../../types/types';
 
 type AddMenuProps = {
   open: boolean;
   setOpen: (arg0: boolean) => void;
-  // data: BakeryMenuTypes[];
-  // setData: any;
+  data: BakeryMenuTypes[];
+  setData: any;
 }
 
-function AddMenu({open, setOpen}: AddMenuProps) {
+function AddMenu({open, setOpen, data, setData}: AddMenuProps) {
 
 
-  // const form = useForm({
-  //   initialValues: {
-  //   image: '',
-  //   title: '',
-  //   id: randomId(),
-  //   menu: [],
-  //   },
-  // });
+  const form = useForm({
+    initialValues: {
+    image: '',
+    title: '',
+    id: randomId(),
+    menu: [],
+    },
+  });
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -65,7 +67,7 @@ function AddMenu({open, setOpen}: AddMenuProps) {
               withAsterisk
               label="Название"
               placeholder="Название меню"
-              // {...form.getInputProps('title')}
+              {...form.getInputProps('title')}
               styles={{
                 input: {
                   "&:focus": {
@@ -79,13 +81,13 @@ function AddMenu({open, setOpen}: AddMenuProps) {
   
         <Group className='flex justify-end mt-8'>
         <Button variant='default' className='mr-1' onClick={() => setOpen(false)}>Отмена</Button>
-        {/* <Button color='primary' onClick={() => {
+        <Button color='primary' onClick={() => {
           const dataCopy = [...data]; 
           dataCopy.push(form.values)
           setData(dataCopy)
           setOpen(false)
         }
-          }>Создать меню</Button> */}
+          }>Создать меню</Button>
       </Group>
 
       </Box>
