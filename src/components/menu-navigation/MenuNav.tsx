@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MenuItem } from "../../types/types";
 
 type MenuNavProps = {
