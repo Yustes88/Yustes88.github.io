@@ -98,7 +98,7 @@ export function CardsCarousel({data}: CardsCarouselProps) {
 
     <>
     
-  <MenuList handleClick= {handleClick}/>
+  <MenuList handleClick= {handleClick} data={data}/>
 
   <div className="mx-auto max-w-3xl">
     <Carousel

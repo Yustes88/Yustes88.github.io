@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import MenuItemLayout from "../components/menu-item/MenuItemLayout";
+import { bakeryMenuData } from "../data/data";
 
 function MenuPage() {
   let { id } = useParams();
@@ -7,7 +8,7 @@ function MenuPage() {
 
   return (
     <>
-    <MenuItemLayout id = {id}/>
+    <MenuItemLayout id = {id} bakeryData={bakeryMenuData}/>
     </>
   )
 }

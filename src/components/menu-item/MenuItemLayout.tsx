@@ -20,10 +20,11 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import MenuList from '../bakery-menu/MenuList'
-import { bakeryMenuData } from '../../data/data'
 import ProductsList from './ProductsList'
 import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
+import AddMenu from '../modals/AddMenu'
+import { BakeryMenuTypes } from '../../types/types'
 
 
 const sortOptions = [
@@ -40,16 +41,24 @@ function classNames(...classes: any) {
 
 type MenuItemLayoutProps = {
   id: string | undefined,
+  bakeryData: BakeryMenuTypes[],
 }
 
-export default function MenuItemLayout({id}: MenuItemLayoutProps) {
-  const menubyId = getMenuById(id, bakeryMenuData)
+export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
+  const menubyId = getMenuById(id, bakeryData)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
+  const [openAddMenu, setOpenAddMenu] = useState(false)
+  const [data, setData] = useState<BakeryMenuTypes[]>([])
+
+  const setModalIsOpenToTrue =()=>{
+    console.log('modal is open!')
+    setOpenAddMenu(true)
+}
   
   const handleClick = (id: string) => {    
-  return bakeryMenuData.filter((item) => {
+  return bakeryData.filter((item) => {
     return item.id === id ? setMenu(item) : null;
   }) 
   }
@@ -112,7 +121,7 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick}/>
+            <MenuList handleClick={handleClick} data={bakeryData}/>
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -176,6 +185,16 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
               
             </section>
 
+          </div>
+
+          <div className="mx-auto max-w-3xl p-6 lg:max-w-7xl lg:px-8">
+          <button onClick={setModalIsOpenToTrue}>
+          &#43;	Add a menu
+          </button>
+          <AddMenu
+                open={openAddMenu}
+                setOpen={setOpenAddMenu}
+              />
           </div>
         </main>
 
