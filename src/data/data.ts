@@ -195,32 +195,32 @@ const DeliveryData: DeliveryDataTypes[] = [
 const AboutImages = [
   {
     id: randomId(),
-    imgUrl: '/about/kids.jpg',
+    imgUrl: 'about/kids.jpg',
     alt: 'Дети в пекарне'
   },
   {
     id: randomId(),
-    imgUrl: '/about/making.jpg',
+    imgUrl: 'about/making.jpg',
     alt: 'Фото теста'
   },
   {
     id: randomId(),
-    imgUrl: '/about/pie.jpg',
+    imgUrl: 'about/pie.jpg',
     alt: 'Фото пирога'
   },
   {
     id: randomId(),
-    imgUrl: '/about/sonya.jpg',
+    imgUrl: 'about/sonya.jpg',
     alt: 'Соня с пирогом'
   },
   {
     id: randomId(),
-    imgUrl: '/about/team.jpg',
+    imgUrl: 'about/team.jpg',
     alt: 'Команда пекарни'
   },
   {
     id: randomId(),
-    imgUrl: '/about/girls.jpg',
+    imgUrl: 'about/girls.jpg',
     alt: 'Девушки в пекарне'
   },
 ]
