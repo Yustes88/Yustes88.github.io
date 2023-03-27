@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BakeryMenuTypes } from "../../types/types";
 
 type MenuListProps = {
@@ -6,6 +7,7 @@ type MenuListProps = {
 }
 
 export default function MenuList({handleClick, data}: MenuListProps) {
+
   return(
     <div className="my-2 mx-auto max-w-4xl">
     <ul className="flex flex-wrap justify-center text-lg leading-8">

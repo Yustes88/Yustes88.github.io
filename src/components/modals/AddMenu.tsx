@@ -14,7 +14,7 @@ type AddMenuProps = {
   dispatch: Dispatch<Add>;
 }
 
-function AddMenu({open, setOpen, dispatch, data, setData}: AddMenuProps) {
+function AddMenu({open, setOpen, dispatch}: AddMenuProps) {
 
 
   const form = useForm({

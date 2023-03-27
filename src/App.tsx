@@ -1,5 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import { useReducer } from "react";
+import { useReducer, useState, useEffect } from "react";
 import { Route } from "react-router";
 import { Routes, BrowserRouter } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
@@ -19,7 +19,12 @@ type AppProps = {
 
 function App({bakeryMenu}: AppProps) {
   const [state, dispatch] = useReducer(menuReducer, bakeryMenu);
+  // const [data, setData] = useState(state)
 
+
+  // useEffect(() => {
+  //   setData(state)
+  // }, [state])
 
   return (
     <MantineProvider theme={{
