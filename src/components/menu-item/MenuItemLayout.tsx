@@ -1,19 +1,4 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useMemo, useState } from 'react'
+import { Dispatch, Fragment, useMemo, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
@@ -25,6 +10,7 @@ import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
 import AddMenu from '../modals/AddMenu'
 import { BakeryMenuTypes } from '../../types/types'
+import { Add } from '../reducer/Reducer'
 
 
 const sortOptions = [
@@ -42,11 +28,13 @@ function classNames(...classes: any) {
 type MenuItemLayoutProps = {
   id: string | undefined,
   bakeryData: BakeryMenuTypes[],
+  dispatch: Dispatch<Add>,
 }
 
-export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
+export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
   const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
   const menubyId = getMenuById(id, data)
+  console.log(data)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
@@ -121,7 +109,7 @@ export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick} data={data}/>
+            <MenuList handleClick={handleClick} data={data} />
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -196,6 +184,7 @@ export default function MenuItemLayout({id, bakeryData}: MenuItemLayoutProps) {
                 setOpen={setOpenAddMenu}
                 data={data}
                 setData={setData}
+                dispatch = {dispatch}
               />
           </div>
         </main>

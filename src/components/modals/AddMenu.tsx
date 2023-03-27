@@ -1,18 +1,20 @@
-import { TextInput, Group, Box, Text, Button, Title } from '@mantine/core';
-import { Fragment } from 'react'
+import { TextInput, Group, Box, Text, Button, Title, FileInput } from '@mantine/core';
+import { Dispatch, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from '@mantine/form';
 import { randomId } from '@mantine/hooks';
 import { BakeryMenuTypes } from '../../types/types';
+import { Add } from '../reducer/Reducer';
 
 type AddMenuProps = {
   open: boolean;
   setOpen: (arg0: boolean) => void;
   data: BakeryMenuTypes[];
   setData: any;
+  dispatch: Dispatch<Add>;
 }
 
-function AddMenu({open, setOpen, data, setData}: AddMenuProps) {
+function AddMenu({open, setOpen, dispatch, data, setData}: AddMenuProps) {
 
 
   const form = useForm({
@@ -78,13 +80,20 @@ function AddMenu({open, setOpen, data, setData}: AddMenuProps) {
               }}
             />
   
+        <FileInput 
+        label="Загрузите фото меню" 
+        placeholder="Загрузите фото меню" 
+        accept="image/png,image/jpeg" 
+        {...form.getInputProps('image')}
+        />
   
         <Group className='flex justify-end mt-8'>
         <Button variant='default' className='mr-1' onClick={() => setOpen(false)}>Отмена</Button>
         <Button color='primary' onClick={() => {
-          const dataCopy = [...data]; 
-          dataCopy.push(form.values)
-          setData(dataCopy)
+          dispatch({
+            type: 'add_new_menu',
+            payload: form.values,
+          })
           setOpen(false)
         }
           }>Создать меню</Button>

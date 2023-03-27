@@ -1,16 +1,24 @@
 import { MantineProvider } from "@mantine/core";
+import { useReducer } from "react";
 import { Route } from "react-router";
 import { Routes, BrowserRouter } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
 import Menu from "./components/menu-navigation/Menu";
+import menuReducer from "./components/reducer/Reducer";
 import { AppRoute } from "./const";
-import { bakeryMenuData, navItems } from "./data/data";
+import { navItems } from "./data/data";
 import AboutPage from "./pages/about";
 import ContactsPage from "./pages/contacts";
 import Main from "./pages/main";
 import MenuPage from "./pages/menu";
+import { BakeryMenuTypes } from "./types/types";
 
-function App() {
+type AppProps = {
+  bakeryMenu: BakeryMenuTypes[];
+}
+
+function App({bakeryMenu}: AppProps) {
+  const [state, dispatch] = useReducer(menuReducer, bakeryMenu);
 
 
   return (
@@ -40,12 +48,12 @@ function App() {
     <Menu/>
     <Routes>
       <Route path={AppRoute.Root}>
-        <Route index element={<Main data = {bakeryMenuData} />}/>
+        <Route index element={<Main data = {state} />}/>
       </Route>
       <Route path={AppRoute.Menu}>
-        <Route path={AppRoute.Id} element={<MenuPage/>}/>
+        <Route path={AppRoute.Id} element={<MenuPage bakeryMenu = {state} dispatch={dispatch}/>}/>
       </Route>
-      <Route path={AppRoute.About} element={<AboutPage/>}/>
+      <Route path={AppRoute.About} element={<AboutPage />}/>
       <Route path={AppRoute.Contacts} element={<ContactsPage/>}/>
     </Routes>
     <Footer links={navItems}/>
