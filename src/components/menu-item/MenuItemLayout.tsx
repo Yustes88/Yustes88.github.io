@@ -1,29 +1,16 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from 'react'
+import { Dispatch, Fragment, useMemo, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import MenuList from '../bakery-menu/MenuList'
-import { bakeryMenuData } from '../../data/data'
 import ProductsList from './ProductsList'
 import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
+import AddMenu from '../modals/AddMenu'
+import { BakeryMenuTypes } from '../../types/types'
+import { Add } from '../reducer/Reducer'
 
 
 const sortOptions = [
@@ -40,16 +27,26 @@ function classNames(...classes: any) {
 
 type MenuItemLayoutProps = {
   id: string | undefined,
+  bakeryData: BakeryMenuTypes[],
+  dispatch: Dispatch<Add>,
 }
 
-export default function MenuItemLayout({id}: MenuItemLayoutProps) {
-  const menubyId = getMenuById(id, bakeryMenuData)
+export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
+  const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
+  const menubyId = getMenuById(id, data)
+  console.log(data)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
+  const [openAddMenu, setOpenAddMenu] = useState(false)
+
+  const setModalIsOpenToTrue =()=>{
+    console.log('modal is open!')
+    setOpenAddMenu(true)
+}
   
   const handleClick = (id: string) => {    
-  return bakeryMenuData.filter((item) => {
+  return data.filter((item) => {
     return item.id === id ? setMenu(item) : null;
   }) 
   }
@@ -112,7 +109,7 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick}/>
+            <MenuList handleClick={handleClick} data={data} />
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -176,6 +173,19 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
               
             </section>
 
+          </div>
+
+          <div className="mx-auto max-w-3xl p-6 lg:max-w-7xl lg:px-8">
+          <button onClick={setModalIsOpenToTrue}>
+          &#43;	Add a menu
+          </button>
+          <AddMenu
+                open={openAddMenu}
+                setOpen={setOpenAddMenu}
+                data={data}
+                setData={setData}
+                dispatch = {dispatch}
+              />
           </div>
         </main>
 
