@@ -19,12 +19,8 @@ type AppProps = {
 
 function App({bakeryMenu}: AppProps) {
   const [state, dispatch] = useReducer(menuReducer, bakeryMenu);
-  // const [data, setData] = useState(state)
+  console.log(state)
 
-
-  // useEffect(() => {
-  //   setData(state)
-  // }, [state])
 
   return (
     <MantineProvider theme={{
