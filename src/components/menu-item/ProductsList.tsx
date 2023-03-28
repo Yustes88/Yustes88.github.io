@@ -1,7 +1,15 @@
+import { TrashIcon } from "@heroicons/react/24/outline";
 import { BakeryMenuItemTypes } from "../../types/types";
 
 export default function ProductsList({menu}: any) {
   return(
+    <>
+    <div>
+      <button className="flex items-center gap-x-1">
+      <TrashIcon className="w-6 h-6"/>
+      <span>Удалить меню &quot;{menu.title}&quot;</span>
+      </button>
+    </div>
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu.map((item: BakeryMenuItemTypes) => (
               <div key={item.id} className="group card">
@@ -26,5 +34,6 @@ export default function ProductsList({menu}: any) {
               </div>
             ))}
           </div>
+          </>
   )
 }

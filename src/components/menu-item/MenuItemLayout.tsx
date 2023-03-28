@@ -34,14 +34,12 @@ type MenuItemLayoutProps = {
 export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
   const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
   const menubyId = getMenuById(id, data)
-  console.log(data)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
   const [openAddMenu, setOpenAddMenu] = useState(false)
 
   const setModalIsOpenToTrue =()=>{
-    console.log('modal is open!')
     setOpenAddMenu(true)
 }
   
