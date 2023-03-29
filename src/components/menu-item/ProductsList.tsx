@@ -1,5 +1,6 @@
 import { Dispatch } from "react";
 import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
+import ConfirmDeleteModal from "../bakery-menu/DeleteModal";
 import DeleteModal from "../bakery-menu/DeleteModal";
 import Error from "../error/Error";
 import { MenuAction } from "../reducer/Reducer";
@@ -13,7 +14,7 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
   return(
     <>
     <div>
-      <DeleteModal menu={menu} dispatch={dispatch}/>
+      <ConfirmDeleteModal menu = {menu} dispatch={dispatch}/>
     </div>
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu === undefined ? <Error/> : menu.menu.map((item: BakeryMenuItemTypes) => (
