@@ -1,5 +1,5 @@
 import { useDisclosure } from '@mantine/hooks';
-import { Modal, Group, Text, Button } from '@mantine/core';
+import { Modal, Group, Text, Button, Title } from '@mantine/core';
 import { TrashIcon } from '@heroicons/react/24/outline';
 import { BakeryMenuTypes } from '../../types/types';
 import { Dispatch } from "react";
@@ -16,18 +16,25 @@ export default function ConfirmDeleteModal({menu, dispatch}: DeleteModalProps) {
 
   return (
     <>
-      <Modal opened={opened} onClose={close} centered>
-       <Text size="sm">
-       Вы хотите удалить меню {menu.title}?
+      <Modal opened={opened} onClose={close} color='brown' centered>
+        <Title size='h3' align='center' mb='md'>Вы хотите удалить меню "{menu.title}"?</Title>
+       <Text size="md" align='center' mb='md'>
+        После удаления меню "{menu.title}" невозможно будет восстановить
        </Text>
 
-      <Button.Group>
-      <Button variant="default" onClick={() => {
+      <Group position='center'>
+      <Button.Group >
+      <Button variant="filled" mr='sm' color='green' onClick={() => {
         console.log('deleted')
         dispatch({ type: 'delete_menu', payload: menu.id });
-      }}>Удалить меню</Button>
+        close()
+      }}>
+        Удалить меню
+        </Button>
+
       <Button variant="default" onClick={close}>Не удалять</Button>
     </Button.Group>
+      </Group>
 
       </Modal>
 
