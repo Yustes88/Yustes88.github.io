@@ -10,7 +10,7 @@ import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
 import AddMenu from '../modals/AddMenu'
 import { BakeryMenuTypes } from '../../types/types'
-import { Add, MenuAction } from '../reducer/Reducer'
+import { MenuAction } from '../reducer/Reducer'
 
 
 const sortOptions = [
@@ -167,7 +167,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
-              {menu?.menu ? <ProductsList menu = {menu}/> : <Error/>}
+              {menu?.menu ? <ProductsList menu = {menu} dispatch={dispatch}/> : <Error/>}
               
             </section>
 

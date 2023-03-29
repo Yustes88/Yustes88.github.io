@@ -12,7 +12,7 @@ export interface Action<T, P> {
 
 export type MenuAction =
   | Action<'add_new_menu', BakeryMenuTypes>
-  | Action<'delete_menu', { id: string }>;
+  | Action<'delete_menu', string>;
 
 
 const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuTypes[] => {
@@ -22,7 +22,7 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
       return [...state, action.payload];
     }
     case 'delete_menu': {
-      return [...state.filter((todo) => todo.id !== action.payload.id)]
+      return [...state.filter((todo) => todo.id !== action.payload)]
     }
     default: {
       return state;
