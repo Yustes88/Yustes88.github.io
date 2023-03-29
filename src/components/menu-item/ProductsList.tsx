@@ -1,25 +1,19 @@
-import { TrashIcon } from "@heroicons/react/24/outline";
 import { Dispatch } from "react";
 import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
+import DeleteModal from "../bakery-menu/DeleteModal";
 import Error from "../error/Error";
 import { MenuAction } from "../reducer/Reducer";
 
 type ProductsListProps = {
   menu: BakeryMenuTypes,
   dispatch: Dispatch<MenuAction>,
-
 }
 
 export default function ProductsList({menu, dispatch}: ProductsListProps) {
   return(
     <>
     <div>
-      <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 transition-all" onClick={() => {
-            dispatch({ type: 'delete_menu', payload: menu.id });
-      }}>
-      <TrashIcon className="w-6 h-6"/>
-      <span>Удалить меню &quot;{menu.title}&quot;</span>
-      </button>
+      <DeleteModal menu={menu} dispatch={dispatch}/>
     </div>
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu === undefined ? <Error/> : menu.menu.map((item: BakeryMenuItemTypes) => (
