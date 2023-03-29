@@ -4,14 +4,14 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from '@mantine/form';
 import { randomId } from '@mantine/hooks';
 import { BakeryMenuTypes } from '../../types/types';
-import { Add } from '../reducer/Reducer';
+import { MenuAction } from '../reducer/Reducer';
 
 type AddMenuProps = {
   open: boolean;
   setOpen: (arg0: boolean) => void;
   data: BakeryMenuTypes[];
   setData: any;
-  dispatch: Dispatch<Add>;
+  dispatch: Dispatch<MenuAction>;
 }
 
 function AddMenu({open, setOpen, dispatch}: AddMenuProps) {

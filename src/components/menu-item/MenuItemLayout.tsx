@@ -10,7 +10,7 @@ import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
 import AddMenu from '../modals/AddMenu'
 import { BakeryMenuTypes } from '../../types/types'
-import { Add } from '../reducer/Reducer'
+import { Add, MenuAction } from '../reducer/Reducer'
 
 
 const sortOptions = [
@@ -28,7 +28,7 @@ function classNames(...classes: any) {
 type MenuItemLayoutProps = {
   id: string | undefined,
   bakeryData: BakeryMenuTypes[],
-  dispatch: Dispatch<Add>,
+  dispatch: Dispatch<MenuAction>,
 }
 
 export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {

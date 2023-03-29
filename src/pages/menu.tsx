@@ -1,12 +1,12 @@
 import { Dispatch } from "react";
 import { useParams } from "react-router-dom";
 import MenuItemLayout from "../components/menu-item/MenuItemLayout";
-import { Add } from "../components/reducer/Reducer";
+import { Add, MenuAction } from "../components/reducer/Reducer";
 import { BakeryMenuTypes } from "../types/types";
 
 type MenuPageProps = {
   bakeryMenu: BakeryMenuTypes[];
-  dispatch: Dispatch<Add>;
+  dispatch: Dispatch<MenuAction>;
 }
 
 function MenuPage({bakeryMenu, dispatch}: MenuPageProps) {
