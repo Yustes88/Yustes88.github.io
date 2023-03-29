@@ -14,7 +14,7 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
   return(
     <>
     <div>
-      <button className="flex items-center gap-x-1" onClick={() => {
+      <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 transition-all" onClick={() => {
             dispatch({ type: 'delete_menu', payload: menu.id });
       }}>
       <TrashIcon className="w-6 h-6"/>
