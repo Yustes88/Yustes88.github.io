@@ -2,6 +2,7 @@ import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Dispatch } from "react";
 import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
 import ConfirmDeleteModal from "../bakery-menu/DeleteModal";
+import MenuButton from "../buttons/MenuButton";
 import Error from "../error/Error";
 import { MenuAction } from "../reducer/Reducer";
 
@@ -19,6 +20,13 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu === undefined ? <Error/> : menu.menu.map((item: BakeryMenuItemTypes) => (
               <div key={item.id} className="group card">
+                <div className="absolute top-2 right-2 flex gap-2 z-50">
+
+              <MenuButton onClick={() => console.log('delete menu item')} icon={<TrashIcon className="w-6 h-6"/>} color={'white'}/>
+
+              <MenuButton onClick={() => console.log('delete menu item')} icon={<PencilIcon className="w-6 h-6"/>} color={'white'}/>
+
+                </div>
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                   <img
                     src={item.imgSrc}
@@ -27,15 +35,6 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
                   />
                 </div>
                 <div className="hidden">
-                
-                
-                <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 active:text-red-madder active:scale-105 transition-all">
-                    <PencilIcon className="w-6 h-6"/>
-                </button>
-
-                <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 active:text-red-madder active:scale-105 transition-all">
-                    <TrashIcon className="w-6 h-6"/>
-                </button>
 
                   {item.ingredient.join(', ')}
                 </div>

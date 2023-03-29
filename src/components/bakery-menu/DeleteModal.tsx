@@ -40,7 +40,7 @@ export default function ConfirmDeleteModal({menu, dispatch}: DeleteModalProps) {
       </Modal>
 
       <Group position="left">
-        <MenuButton text='Удалить меню' onClick={open} icon={<TrashIcon className="w-6 h-6"/>} menu={menu.title}/>
+        <MenuButton text='Удалить меню' onClick={open} icon={<TrashIcon className="w-6 h-6"/>} color={'red-madder'} colorHover={'red-rusty'} menu={menu.title}/>
       </Group>
     </>
   );
