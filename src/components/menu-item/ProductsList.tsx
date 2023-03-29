@@ -1,9 +1,23 @@
-import { BakeryMenuItemTypes } from "../../types/types";
+import { Dispatch } from "react";
+import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
+import ConfirmDeleteModal from "../bakery-menu/DeleteModal";
+import DeleteModal from "../bakery-menu/DeleteModal";
+import Error from "../error/Error";
+import { MenuAction } from "../reducer/Reducer";
 
-export default function ProductsList({menu}: any) {
+type ProductsListProps = {
+  menu: BakeryMenuTypes,
+  dispatch: Dispatch<MenuAction>,
+}
+
+export default function ProductsList({menu, dispatch}: ProductsListProps) {
   return(
+    <>
+    <div>
+      <ConfirmDeleteModal menu = {menu} dispatch={dispatch}/>
+    </div>
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
-            {menu.menu.map((item: BakeryMenuItemTypes) => (
+            {menu.menu === undefined ? <Error/> : menu.menu.map((item: BakeryMenuItemTypes) => (
               <div key={item.id} className="group card">
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                   <img
@@ -26,5 +40,6 @@ export default function ProductsList({menu}: any) {
               </div>
             ))}
           </div>
+          </>
   )
 }

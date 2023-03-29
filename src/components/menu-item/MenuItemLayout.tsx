@@ -10,7 +10,7 @@ import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
 import AddMenu from '../modals/AddMenu'
 import { BakeryMenuTypes } from '../../types/types'
-import { Add } from '../reducer/Reducer'
+import { MenuAction } from '../reducer/Reducer'
 
 
 const sortOptions = [
@@ -28,20 +28,18 @@ function classNames(...classes: any) {
 type MenuItemLayoutProps = {
   id: string | undefined,
   bakeryData: BakeryMenuTypes[],
-  dispatch: Dispatch<Add>,
+  dispatch: Dispatch<MenuAction>,
 }
 
 export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
   const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
   const menubyId = getMenuById(id, data)
-  console.log(data)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
   const [openAddMenu, setOpenAddMenu] = useState(false)
 
   const setModalIsOpenToTrue =()=>{
-    console.log('modal is open!')
     setOpenAddMenu(true)
 }
   
@@ -169,7 +167,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
-              {menu?.menu ? <ProductsList menu = {menu}/> : <Error/>}
+              {menu?.menu ? <ProductsList menu = {menu} dispatch={dispatch}/> : <Error/>}
               
             </section>
 
