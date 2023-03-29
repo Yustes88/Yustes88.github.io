@@ -1,7 +1,7 @@
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Dispatch } from "react";
 import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
 import ConfirmDeleteModal from "../bakery-menu/DeleteModal";
-import DeleteModal from "../bakery-menu/DeleteModal";
 import Error from "../error/Error";
 import { MenuAction } from "../reducer/Reducer";
 
@@ -27,6 +27,16 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
                   />
                 </div>
                 <div className="hidden">
+                
+                
+                <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 active:text-red-madder active:scale-105 transition-all">
+                    <PencilIcon className="w-6 h-6"/>
+                </button>
+
+                <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 active:text-red-madder active:scale-105 transition-all">
+                    <TrashIcon className="w-6 h-6"/>
+                </button>
+
                   {item.ingredient.join(', ')}
                 </div>
                 <div className="flex justify-between items-center">

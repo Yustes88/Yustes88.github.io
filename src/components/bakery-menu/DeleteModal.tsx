@@ -4,6 +4,7 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 import { BakeryMenuTypes } from '../../types/types';
 import { Dispatch } from "react";
 import { MenuAction } from "../reducer/Reducer";
+import MenuButton from '../buttons/MenuButton';
 
 type DeleteModalProps = {
   menu: BakeryMenuTypes,
@@ -39,10 +40,7 @@ export default function ConfirmDeleteModal({menu, dispatch}: DeleteModalProps) {
       </Modal>
 
       <Group position="left">
-      <button className="flex items-center gap-x-1 text-red-madder hover:text-red-rusty hover:scale-110 active:text-red-madder active:scale-105 transition-all" onClick={open}>
-    <TrashIcon className="w-6 h-6"/>
-    <span>Удалить меню &quot;{menu.title}&quot;</span>
-</button>
+        <MenuButton text='Удалить меню' onClick={open} icon={<TrashIcon className="w-6 h-6"/>} menu={menu.title}/>
       </Group>
     </>
   );
