@@ -13,16 +13,17 @@ type DeleteModalProps = {
   text: string,
   description: string,
   type: string,
+  color: string,
 }
 
 
-export default function ConfirmDeleteModal({menu, item, dispatch, text, description, type}: DeleteModalProps) {
+export default function ConfirmDeleteModal({menu, item, dispatch, text, description, type, color}: DeleteModalProps) {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
       <Modal opened={opened} onClose={close} color='brown' centered>
-        <Title size='h3' align='center' mb='md'>{text} "{type === 'delete_menu' ? menu.title : item?.title}"?</Title>
+        <Title size='h3' align='center' mb='md'>{text} "{type === 'menu' ? menu.title : item?.title}"?</Title>
        <Text size="md" align='center' mb='md'>
         {description}
        </Text>
@@ -49,7 +50,7 @@ export default function ConfirmDeleteModal({menu, item, dispatch, text, descript
       </Modal>
 
       <Group position="left">
-        <MenuButton text='Удалить меню' type={type} onClick={open} icon={<TrashIcon className="w-6 h-6"/>} color={'red-madder'} colorHover={'red-rusty'} menu={menu.title}/>
+        <MenuButton text='Удалить меню' type={type} onClick={open} icon={<TrashIcon className="w-6 h-6"/>} color={color} colorHover={'red-rusty'} menu={menu.title}/>
       </Group>
     </>
   );
