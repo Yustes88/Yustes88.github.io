@@ -28,15 +28,16 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
       const menuIndex = state.findIndex(menu => menu.id === action.menu.id);
       console.log(menuIndex)
 
-      const modifiedMenu = {
-        ...state[menuIndex], 
-          menu: state[menuIndex].menu.filter((item) => {
-          console.log(item.id, action.item?.id)
-          return item.id !== action.item?.id} )
-      };
-      console.log(modifiedMenu)
+      return [...state.map(menu => {
+        if (menu.id === action.menu.id && menu.menu) {
+          return {
+            ...menu,
+            menu: menu.menu.filter(item => item.id !== action.item?.id)
+          };
+        } else {
+          return menu;
+        }})];
 
-      return [  ...state.slice(0, menuIndex),  modifiedMenu,  ...state.slice(menuIndex + 1)];
 
       // return [...state, action.menu.filter((item) => item.id !== action.item?.id)]
     }
