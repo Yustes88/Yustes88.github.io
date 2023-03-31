@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { useParams } from "react-router-dom";
 import MenuItemLayout from "../components/menu-item/MenuItemLayout";
-import { Add, MenuAction } from "../components/reducer/Reducer";
+import { MenuAction } from "../components/reducer/Reducer";
 import { BakeryMenuTypes } from "../types/types";
 
 type MenuPageProps = {

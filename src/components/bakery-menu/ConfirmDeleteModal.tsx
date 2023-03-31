@@ -7,8 +7,8 @@ import { MenuAction } from "../reducer/Reducer";
 import MenuButton from '../buttons/MenuButton';
 
 type DeleteModalProps = {
-  menu: BakeryMenuTypes | BakeryMenuItemTypes,
-  id: string,
+  menu: BakeryMenuTypes | BakeryMenuItemTypes ,
+  item?: BakeryMenuItemTypes,
   dispatch: Dispatch<MenuAction>,
   text: string,
   description: string,
@@ -16,13 +16,13 @@ type DeleteModalProps = {
 }
 
 
-export default function ConfirmDeleteModal({menu, id, dispatch, text, description, type}: DeleteModalProps) {
+export default function ConfirmDeleteModal({menu, item, dispatch, text, description, type}: DeleteModalProps) {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
       <Modal opened={opened} onClose={close} color='brown' centered>
-        <Title size='h3' align='center' mb='md'>{text} "{menu.title}"?</Title>
+        <Title size='h3' align='center' mb='md'>{text} "{type === 'delete_menu' ? menu.title : item?.title}"?</Title>
        <Text size="md" align='center' mb='md'>
         {description}
        </Text>
@@ -30,8 +30,13 @@ export default function ConfirmDeleteModal({menu, id, dispatch, text, descriptio
       <Group position='center'>
       <Button.Group >
       <Button variant="filled" mr='sm' color='green' onClick={() => {
-        console.log('deleted')
-        dispatch({ type: 'delete_menu', payload: id });
+          if(type === 'menu') {
+            dispatch({ type: 'delete_menu', menu: menu })
+           };
+           if(type === 'item' && item) {
+            dispatch({ type: 'delete_item', menu: menu, item: item })
+           }
+
         close()
       }}>
         Да, удалить

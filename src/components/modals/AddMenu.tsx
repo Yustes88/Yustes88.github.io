@@ -92,7 +92,7 @@ function AddMenu({open, setOpen, dispatch}: AddMenuProps) {
         <Button color='primary' onClick={() => {
           dispatch({
             type: 'add_new_menu',
-            payload: form.values,
+            menu: form.values,
           })
           setOpen(false)
         }
