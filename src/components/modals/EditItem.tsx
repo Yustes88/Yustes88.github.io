@@ -1,4 +1,4 @@
-import { TextInput, Group, Box, Text, Button, Title, FileInput, Modal } from '@mantine/core';
+import { TextInput, Group, createStyles, Text, Button, Title, FileInput, Modal } from '@mantine/core';
 import { Dispatch } from 'react'
 import { useForm } from '@mantine/form';
 import { BakeryMenuItemTypes } from '../../types/types';
@@ -11,6 +11,7 @@ type EditItemProps = {
   dispatch: Dispatch<MenuAction>;
   item: BakeryMenuItemTypes;
 }
+
 
 export default function EditItem({dispatch, item}: EditItemProps) {
   const [opened, { open, close }] = useDisclosure(false);
@@ -26,6 +27,8 @@ export default function EditItem({dispatch, item}: EditItemProps) {
     },
   });
 
+  const formKeys = Object.keys(form.values)
+
   return (
     <>
       <Modal opened={opened} onClose={close} color='brown' centered>
@@ -34,21 +37,24 @@ export default function EditItem({dispatch, item}: EditItemProps) {
         Здесь можно отредактировать блюдо
        </Text>
 
-       <TextInput
-              withAsterisk
-              label="Название"
-              placeholder="Название блюда"
-              {...form.getInputProps('title')}
-              styles={{
-                input: {
-                  "&:focus": {
-                    border: '1px solid #33859d !important',
-                    boxShadow: ' 0px 0px 0px 1px #33859d !important',
-                  }
-                }
-              }}
-            />
+      {formKeys.map((item) => {
+       return item === 'id' ? null : <TextInput
+        label={item}
+        placeholder={item}
+        {...form.getInputProps(`${item}`)}
+        styles={{
+          input: {
+            "&:focus": {
+              border: '1px solid #33859d !important',
+              boxShadow: ' 0px 0px 0px 1px #33859d !important',
+            }
+          }
+        }}
+      />
+      })}
 
+
+            
 
       <Group position='center'>
       <Button.Group >
