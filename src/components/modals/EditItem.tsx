@@ -1,4 +1,4 @@
-import { TextInput, Group, createStyles, Text, Button, Title, FileInput, Modal } from '@mantine/core';
+import { TextInput, Group, createStyles, Text, Button, Title, FileInput, Modal, Image } from '@mantine/core';
 import { Dispatch } from 'react'
 import { useForm } from '@mantine/form';
 import { BakeryMenuItemTypes } from '../../types/types';
@@ -38,8 +38,19 @@ export default function EditItem({dispatch, item}: EditItemProps) {
        </Text>
 
       {formKeys.map((item) => {
-       return item === 'id' ? null : <TextInput
-        label={item}
+        if(item === 'id') return null;
+        if(item === 'imgSrc') {
+          return  <FileInput
+          mb='sm' 
+          label="Загрузите фото меню" 
+          placeholder="Загрузите фото меню" 
+          accept="image/png,image/jpeg" 
+          {...form.getInputProps('imgSrc')}
+          />
+        }
+        return <TextInput
+        label={item} 
+        mb='sm'
         placeholder={item}
         {...form.getInputProps(`${item}`)}
         styles={{
