@@ -47,9 +47,11 @@ export default function EditItem({dispatch, item, menu}: EditItemProps) {
           placeholder="Загрузите фото меню" 
           accept="image/png,image/jpeg" 
           {...form.getInputProps('imgSrc')}
+          key={item}
           />
         }
         return <TextInput
+        key={item}
         label={item} 
         mb='sm'
         placeholder={item}

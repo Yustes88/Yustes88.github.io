@@ -37,7 +37,7 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
     }
     case 'edit_item': {
       return state.map(menu => {
-        if (menu.id === action.menu.id) {
+        if (menu.id === action.menu.id && menu.menu) {
           const updatedItems = menu.menu.map(item => {
             if (item.id === action.item?.id) {
               return {
