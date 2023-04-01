@@ -36,7 +36,25 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
         }})];
     }
     case 'edit_item': {
-      return [...state];
+      return state.map(menu => {
+        if (menu.id === action.menu.id) {
+          const updatedItems = menu.menu.map(item => {
+            if (item.id === action.item?.id) {
+              return {
+                ...action.item,
+              };
+            } else {
+              return item;
+            }
+          });
+          return {
+            ...menu,
+            menu: updatedItems
+          };
+        } else {
+          return menu;
+        }
+      });
     }
     default: {
       return state;

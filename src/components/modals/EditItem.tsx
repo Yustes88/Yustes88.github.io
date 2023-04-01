@@ -1,7 +1,7 @@
 import { TextInput, Group, createStyles, Text, Button, Title, FileInput, Modal, Image } from '@mantine/core';
 import { Dispatch } from 'react'
 import { useForm } from '@mantine/form';
-import { BakeryMenuItemTypes } from '../../types/types';
+import { BakeryMenuItemTypes, BakeryMenuTypes } from '../../types/types';
 import { MenuAction } from '../reducer/Reducer';
 import { PencilIcon } from '@heroicons/react/24/outline';
 import { useDisclosure } from '@mantine/hooks';
@@ -10,10 +10,11 @@ import MenuButton from '../buttons/MenuButton';
 type EditItemProps = {
   dispatch: Dispatch<MenuAction>;
   item: BakeryMenuItemTypes;
+  menu: BakeryMenuTypes;
 }
 
 
-export default function EditItem({dispatch, item}: EditItemProps) {
+export default function EditItem({dispatch, item, menu}: EditItemProps) {
   const [opened, { open, close }] = useDisclosure(false);
 
   const form = useForm({
@@ -70,6 +71,9 @@ export default function EditItem({dispatch, item}: EditItemProps) {
       <Group position='center'>
       <Button.Group >
       <Button variant="filled" mr='sm' color='green' onClick={() => {
+        if(menu.menu) {
+          dispatch({type: 'edit_item', menu: menu, item: form.values})
+        }
         close()
       }}>
         Отредактировать

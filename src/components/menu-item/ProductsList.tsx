@@ -25,7 +25,7 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
 
                 <ConfirmDeleteModal menu={menu} item={item} dispatch={dispatch} text={'Вы хотите удалить блюдо'} description={'После удаления блюдо невозможно будет восстановить'} type={'item'} color={'white'}/>
 
-                <EditItem item={item} dispatch={dispatch}/>
+                <EditItem item={item} menu = {menu} dispatch={dispatch}/>
 
                 </div>
                 <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
