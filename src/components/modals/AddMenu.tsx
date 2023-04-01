@@ -84,7 +84,7 @@ function AddMenu({open, setOpen, dispatch}: AddMenuProps) {
         label="Загрузите фото меню" 
         placeholder="Загрузите фото меню" 
         accept="image/png,image/jpeg" 
-        {...form.getInputProps('image')}
+        {...form.getInputProps('imgSrc')}
         />
   
         <Group className='flex justify-end mt-8'>
