@@ -37,7 +37,7 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
                 </div>
                 <div className="hidden">
 
-                  {item.ingredient.join(', ')}
+                  {typeof item.ingredient === 'object' ? item.ingredient.join(', ') : item.ingredient}
                 </div>
                 <div className="flex justify-between items-center">
                 <h3 className="mt-2 text-base font-semibold text-gray-900 ">

@@ -42,6 +42,7 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
             if (item.id === action.item?.id) {
               return {
                 ...action.item,
+                ingredient: typeof action.item.ingredient === 'string' ?  action.item.ingredient.split(',') : action.item.ingredient,
               };
             } else {
               return item;
