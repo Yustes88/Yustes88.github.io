@@ -40,11 +40,13 @@ function Menu({bakeryMenu}: MenuProps) {
                   <Popover.Button
                     className="text-brown bg-brown-light-3 group inline-flex items-center rounded-md font-medium hover:text-gray-900 focus:outline-none focus:ring-1 focus:ring-brown focus:ring-offset-2 text-base max-w-sm font-medium leading-tight"
                     >
-                    <span className="bg-transparent link link-underline link-underline-green">
                       {navItems.map((item) => {
-                        return item.title === 'Меню' ? 'Меню' : ''
+                        return(
+                        <span className="bg-transparent link link-underline link-underline-green" key={item.title}>
+                        {item.title === 'Меню' ? 'Меню' : ''}
+                        </span>
+                        )
                       })}
-                    </span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? "text-brown" : "text-brown",
@@ -67,18 +69,11 @@ function Menu({bakeryMenu}: MenuProps) {
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-brown ring-opacity-25">
                         <div className="relative grid gap-6 bg-brown-light-3 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                           {bakeryMenu.map((item) => (
-                            <button onClick={() => close()}>
+                              <button onClick={() => close()} key={item.title}>
                             <Link
-                              key={item.title}
                               to={`/menu/${item.id}`}
                               className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50 "
                             >
-                              {/* <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-indigo-500 text-white sm:h-12 sm:w-12">
-                                <item.icon
-                                  className="h-6 w-6"
-                                  aria-hidden="true"
-                                />
-                              </div> */}
                               <div className="ml-4">
                                 <p className="text-base font-medium text-gray-900 link link-underline link-underline-green">
                                   {item.title}

@@ -11,7 +11,6 @@ type MenuPageProps = {
 
 function MenuPage({bakeryMenu, dispatch}: MenuPageProps) {
   let { id } = useParams();
-  console.log(id)
 
   return (
     <>
