@@ -7,15 +7,20 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Logo from "../logo/Logo";
 import MenuNav from "./MenuNav";
-import { bakeryMenuData, navItems } from "../../data/data";
+import { navItems } from "../../data/data";
 import { Link } from "react-router-dom";
+import { BakeryMenuTypes } from "../../types/types";
 
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Menu() {
+type MenuProps = {
+  bakeryMenu: BakeryMenuTypes[];
+}
+
+function Menu({bakeryMenu}: MenuProps) {
   return (
     <>
       <Logo />
@@ -61,7 +66,7 @@ function Menu() {
                     <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform lg:left-1/2 lg:ml-0 lg:max-w-2xl lg:-translate-x-1/2">
                       <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-brown ring-opacity-25">
                         <div className="relative grid gap-6 bg-brown-light-3 px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
-                          {bakeryMenuData.map((item) => (
+                          {bakeryMenu.map((item) => (
                             <button onClick={() => close()}>
                             <Link
                               key={item.title}

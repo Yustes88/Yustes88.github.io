@@ -46,7 +46,7 @@ function App({bakeryMenu}: AppProps) {
       },
     }}>
     <BrowserRouter>
-    <Menu/>
+    <Menu bakeryMenu = {state}/>
     <Routes>
       <Route path={AppRoute.Root}>
         <Route index element={<Main data = {state} />}/>
