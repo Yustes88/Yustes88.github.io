@@ -3,14 +3,11 @@ import { Dispatch, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from '@mantine/form';
 import { randomId } from '@mantine/hooks';
-import { BakeryMenuTypes } from '../../types/types';
 import { MenuAction } from '../reducer/Reducer';
 
 type AddMenuProps = {
   open: boolean;
   setOpen: (arg0: boolean) => void;
-  data: BakeryMenuTypes[];
-  setData: any;
   dispatch: Dispatch<MenuAction>;
 }
 

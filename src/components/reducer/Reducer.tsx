@@ -18,8 +18,8 @@ export type MenuAction =
 const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuTypes[] => {
   switch (action.type) {
     case 'add_new_menu': {
-      console.log('added')
-      return [...state, action.menu];
+      const newArray = state.slice()
+      return [...newArray, action.menu];
     }
     case 'delete_menu': {
       return [...state.filter((menu) => menu.id !== action.menu.id)]

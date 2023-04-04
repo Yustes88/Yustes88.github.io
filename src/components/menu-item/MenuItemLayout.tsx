@@ -1,4 +1,4 @@
-import { Dispatch, Fragment, useMemo, useState } from 'react'
+import { Dispatch, Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
@@ -32,8 +32,7 @@ type MenuItemLayoutProps = {
 }
 
 export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
-  const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
-  const menubyId = getMenuById(id, data)
+  const menubyId = getMenuById(id, bakeryData)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
@@ -44,7 +43,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
 }
   
   const handleClick = (id: string) => {    
-  return data.filter((item) => {
+  return bakeryData.filter((item) => {
     return item.id === id ? setMenu(item) : null;
   }) 
   }
@@ -107,7 +106,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick} data={data} />
+            <MenuList handleClick={handleClick} data={bakeryData} />
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -179,8 +178,6 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
           <AddMenu
                 open={openAddMenu}
                 setOpen={setOpenAddMenu}
-                data={data}
-                setData={setData}
                 dispatch = {dispatch}
               />
           </div>
