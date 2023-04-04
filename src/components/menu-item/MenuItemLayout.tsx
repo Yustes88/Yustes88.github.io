@@ -101,7 +101,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick} data={bakeryData} dispatch={dispatch}/>
+            <MenuList handleClick={handleClick} data={bakeryData} dispatch={dispatch} menu={menu}/>
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">

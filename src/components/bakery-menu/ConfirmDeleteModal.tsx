@@ -7,9 +7,9 @@ import { MenuAction } from "../reducer/Reducer";
 import MenuButton from '../buttons/MenuButton';
 
 type DeleteModalProps = {
-  menu: BakeryMenuTypes | BakeryMenuItemTypes ,
+  menu: BakeryMenuTypes | BakeryMenuItemTypes | undefined,
   item?: BakeryMenuItemTypes,
-  dispatch: Dispatch<MenuAction>,
+  dispatch: Dispatch<MenuAction> | undefined,
   text: string,
   description: string,
   type: string,
@@ -23,7 +23,7 @@ export default function ConfirmDeleteModal({menu, item, dispatch, text, descript
   return (
     <>
       <Modal opened={opened} onClose={close} color='brown' centered>
-        <Title size='h3' align='center' mb='md'>{text} "{type === 'menu' ? menu.title : item?.title}"?</Title>
+        <Title size='h3' align='center' mb='md'>{text} "{type === 'menu' && menu ? menu.title : item?.title}"?</Title>
        <Text size="md" align='center' mb='md'>
         {description}
        </Text>
@@ -31,10 +31,10 @@ export default function ConfirmDeleteModal({menu, item, dispatch, text, descript
       <Group position='center'>
       <Button.Group >
       <Button variant="filled" mr='sm' color='green' onClick={() => {
-          if(type === 'menu') {
+          if(type === 'menu' && dispatch && menu) {
             dispatch({ type: 'delete_menu', menu: menu })
            };
-           if(type === 'item' && item) {
+           if(type === 'item' && item && dispatch && menu) {
             dispatch({ type: 'delete_item', menu: menu, item: item })
            }
 
@@ -46,12 +46,14 @@ export default function ConfirmDeleteModal({menu, item, dispatch, text, descript
       <Button variant="default" onClick={close}>Не удалять</Button>
     </Button.Group>
       </Group>
-
       </Modal>
 
-      <Group position="left">
-        <MenuButton text='Удалить меню' type={type} onClick={open} icon={<TrashIcon className="w-6 h-6"/>} color={color} colorHover={'red-rusty'} menu={menu.title}/>
-      </Group>
+      { 
+      menu ? 
+      <Group>
+      <MenuButton text='Удалить меню' type={type} onClick={open} icon={<TrashIcon className="w-6 h-6"/>} color={color} colorHover={'red-rusty'} menu={menu.title}/>
+    </Group> : null
+      }
     </>
   );
 }

@@ -2,14 +2,16 @@ import { Dispatch, useState } from "react";
 import { BakeryMenuTypes } from "../../types/types";
 import AddMenu from "../modals/AddMenu";
 import { MenuAction } from "../reducer/Reducer";
+import ConfirmDeleteModal from "./ConfirmDeleteModal";
 
 type MenuListProps = {
   handleClick: (id:string) => void;
   data: BakeryMenuTypes[];
+  menu?: BakeryMenuTypes | undefined;
   dispatch?: Dispatch<MenuAction>,
 }
 
-export default function MenuList({handleClick, data, dispatch}: MenuListProps) {
+export default function MenuList({handleClick, data, menu, dispatch}: MenuListProps) {
   const [openAddMenu, setOpenAddMenu] = useState(false)
 
   const setModalIsOpenToTrue =()=>{
@@ -28,8 +30,8 @@ export default function MenuList({handleClick, data, dispatch}: MenuListProps) {
           )
         })}
     </ul>
-    <div className="mx-auto flex justify-end max-w-3xl p-6 lg:max-w-7xl lg:px-8">
-          <button onClick={setModalIsOpenToTrue}>
+    <div className="mx-auto flex flex-col items-end gap-2 max-w-3xl p-6 lg:max-w-7xl lg:px-8">
+          <button onClick={setModalIsOpenToTrue} className="hover:scale-110 active:scale-105 transition-all">
           &#43;	Добавить новое меню
           </button>
           <AddMenu
@@ -37,7 +39,10 @@ export default function MenuList({handleClick, data, dispatch}: MenuListProps) {
                 setOpen={setOpenAddMenu}
                 dispatch = {dispatch}
               />
+
+      <ConfirmDeleteModal menu = {menu} type={'menu'} dispatch={dispatch} text={'Вы хотите удалить меню'} description={'После удаления меню невозможно будет восстановить'} color={'red-madder'}/>
           </div>
+          
   </div>
   )
 }

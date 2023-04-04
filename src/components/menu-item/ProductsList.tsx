@@ -15,9 +15,6 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
 
   return(
     <>
-    <div>
-      <ConfirmDeleteModal menu = {menu} type={'menu'} dispatch={dispatch} text={'Вы хотите удалить меню'} description={'После удаления меню невозможно будет восстановить'} color={'red-madder'}/>
-    </div>
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
             {menu.menu === undefined ? <Error/> : menu.menu.map((item: BakeryMenuItemTypes) => (
               <div key={item.id} className="group card">
@@ -50,6 +47,9 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
               </div>
             ))}
           </div>
+          <div className="group card">
+              &#43; Добавить новое блюдо
+              </div>
           </>
   )
 }
