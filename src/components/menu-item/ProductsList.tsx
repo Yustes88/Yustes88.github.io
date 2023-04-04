@@ -1,10 +1,10 @@
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { Dispatch, useRef, useState } from "react";
+import { Dispatch } from "react";
 import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
 import ConfirmDeleteModal from "../bakery-menu/ConfirmDeleteModal";
 import Error from "../error/Error";
 import { MenuAction } from "../reducer/Reducer";
 import EditItem from "../modals/EditItem";
+import AddItem from "../modals/AddItem";
 
 type ProductsListProps = {
   menu: BakeryMenuTypes,
@@ -47,9 +47,9 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
               </div>
             ))}
           </div>
-          <div className="group card">
-              &#43; Добавить новое блюдо
-              </div>
+          <div className="mx-auto flex gap-2 max-w-3xl p-6 lg:max-w-7xl lg:px-8">
+          <AddItem dispatch={dispatch} menu={menu}/>
+          </div>
           </>
   )
 }

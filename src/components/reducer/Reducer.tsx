@@ -11,7 +11,8 @@ export type MenuAction =
   | Action<'add_new_menu', BakeryMenuTypes, null>
   | Action<'delete_menu', BakeryMenuTypes | BakeryMenuItemTypes, null>
   | Action<'delete_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>
-  | Action<'edit_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>;
+  | Action<'edit_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>
+  | Action<'add_new_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>;
   ;
 
 
@@ -23,6 +24,17 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
     }
     case 'delete_menu': {
       return [...state.filter((menu) => menu.id !== action.menu.id)]
+    }
+    case 'add_new_item': {
+      return state.map(menu => {
+        if (menu.id === action.menu.id) {
+          return { ...menu, 
+          menu: [...menu.menu, action.item]
+          };
+        } else {
+          return menu;
+        }
+      });
     }
     case 'delete_item': {
       return [...state.map(menu => {
