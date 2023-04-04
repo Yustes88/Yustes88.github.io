@@ -8,7 +8,6 @@ import MenuList from '../bakery-menu/MenuList'
 import ProductsList from './ProductsList'
 import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
-import AddMenu from '../modals/AddMenu'
 import { BakeryMenuTypes } from '../../types/types'
 import { MenuAction } from '../reducer/Reducer'
 
@@ -36,11 +35,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
-  const [openAddMenu, setOpenAddMenu] = useState(false)
 
-  const setModalIsOpenToTrue =()=>{
-    setOpenAddMenu(true)
-}
   
   const handleClick = (id: string) => {    
   return bakeryData.filter((item) => {
@@ -106,7 +101,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick} data={bakeryData} />
+            <MenuList handleClick={handleClick} data={bakeryData} dispatch={dispatch}/>
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -171,16 +166,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
 
           </div>
 
-          <div className="mx-auto max-w-3xl p-6 lg:max-w-7xl lg:px-8">
-          <button onClick={setModalIsOpenToTrue}>
-          &#43;	Add a menu
-          </button>
-          <AddMenu
-                open={openAddMenu}
-                setOpen={setOpenAddMenu}
-                dispatch = {dispatch}
-              />
-          </div>
+          
         </main>
 
       </div>

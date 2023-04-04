@@ -1,13 +1,20 @@
-import { useEffect } from "react";
+import { Dispatch, useState } from "react";
 import { BakeryMenuTypes } from "../../types/types";
+import AddMenu from "../modals/AddMenu";
+import { MenuAction } from "../reducer/Reducer";
 
 type MenuListProps = {
   handleClick: (id:string) => void;
   data: BakeryMenuTypes[];
+  dispatch?: Dispatch<MenuAction>,
 }
 
-export default function MenuList({handleClick, data}: MenuListProps) {
+export default function MenuList({handleClick, data, dispatch}: MenuListProps) {
+  const [openAddMenu, setOpenAddMenu] = useState(false)
 
+  const setModalIsOpenToTrue =()=>{
+    setOpenAddMenu(true)
+}
   return(
     <div className="my-2 mx-auto max-w-4xl">
     <ul className="flex flex-wrap justify-center text-lg leading-8">
@@ -21,6 +28,16 @@ export default function MenuList({handleClick, data}: MenuListProps) {
           )
         })}
     </ul>
+    <div className="mx-auto flex justify-end max-w-3xl p-6 lg:max-w-7xl lg:px-8">
+          <button onClick={setModalIsOpenToTrue}>
+          &#43;	Добавить новое меню
+          </button>
+          <AddMenu
+                open={openAddMenu}
+                setOpen={setOpenAddMenu}
+                dispatch = {dispatch}
+              />
+          </div>
   </div>
   )
 }

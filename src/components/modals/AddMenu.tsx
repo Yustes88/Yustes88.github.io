@@ -8,7 +8,7 @@ import { MenuAction } from '../reducer/Reducer';
 type AddMenuProps = {
   open: boolean;
   setOpen: (arg0: boolean) => void;
-  dispatch: Dispatch<MenuAction>;
+  dispatch: Dispatch<MenuAction> | undefined;
 }
 
 function AddMenu({open, setOpen, dispatch}: AddMenuProps) {
@@ -87,11 +87,13 @@ function AddMenu({open, setOpen, dispatch}: AddMenuProps) {
         <Group className='flex justify-end mt-8'>
         <Button variant='default' className='mr-1' onClick={() => setOpen(false)}>Отмена</Button>
         <Button color='primary' onClick={() => {
-          dispatch({
-            type: 'add_new_menu',
-            menu: form.values,
-          })
-          setOpen(false)
+          if(dispatch) {
+            dispatch({
+              type: 'add_new_menu',
+              menu: form.values,
+            })
+            setOpen(false)
+          }
         }
           }>Создать меню</Button>
       </Group>
