@@ -12,11 +12,7 @@ type MenuListProps = {
 }
 
 export default function MenuList({handleClick, data, menu, dispatch}: MenuListProps) {
-  const [openAddMenu, setOpenAddMenu] = useState(false)
 
-  const setModalIsOpenToTrue =()=>{
-    setOpenAddMenu(true)
-}
   return(
     <div className="my-2 mx-auto max-w-4xl">
     <ul className="flex flex-wrap justify-center text-lg leading-8">
@@ -31,12 +27,7 @@ export default function MenuList({handleClick, data, menu, dispatch}: MenuListPr
         })}
     </ul>
     <div className="mx-auto flex flex-col items-end gap-2 max-w-3xl p-6 lg:max-w-7xl lg:px-8">
-          <button onClick={setModalIsOpenToTrue} className="hover:scale-110 active:scale-105 transition-all">
-          &#43;	Добавить новое меню
-          </button>
           <AddMenu
-                open={openAddMenu}
-                setOpen={setOpenAddMenu}
                 dispatch = {dispatch}
               />
 

@@ -8,7 +8,7 @@ export interface Action<T, P, O> {
 }
 
 export type MenuAction =
-  | Action<'add_new_menu', BakeryMenuTypes, null>
+  | Action<'add_new_menu', any, null>
   | Action<'delete_menu', BakeryMenuTypes | BakeryMenuItemTypes, null>
   | Action<'delete_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>
   | Action<'edit_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>
@@ -20,7 +20,7 @@ const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuT
   switch (action.type) {
     case 'add_new_menu': {
       const newArray = state.slice()
-      return [...newArray, action.menu];
+      return [...newArray,  {...action.menu, image: URL.createObjectURL(action.menu.image)}];
     }
     case 'delete_menu': {
       return [...state.filter((menu) => menu.id !== action.menu.id)]
