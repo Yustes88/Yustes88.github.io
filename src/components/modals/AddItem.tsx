@@ -1,4 +1,4 @@
-import { TextInput, Group, Text, Button, Title, FileInput, Modal, Image } from '@mantine/core';
+import { TextInput, Group, Text, Button, Title, FileInput, Modal } from '@mantine/core';
 import { Dispatch } from 'react'
 import { useForm } from '@mantine/form';
 import {  BakeryMenuTypes } from '../../types/types';
