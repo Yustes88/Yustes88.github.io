@@ -107,42 +107,49 @@ const bakeryMenuData: BakeryMenuTypes[] = [
     'menu-bg/dessert.jpg',
     title: 'Десерты',
     id: randomId(),
+    menu: [],
   },
   {
     image:
     'menu-bg/hot.jpg',
     title: 'Горячее',
     id: randomId(),
+    menu: [],
   },
   {
     image:
     'menu-bg/breakfast.jpg',
     title: 'Завтраки',
     id: randomId(),
+    menu: [],
   },
   {
     image:
       'https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
     title: 'Кыстыбый',
     id: randomId(),
+    menu: [],
   },
   {
     image:
     'menu-bg/salad.jpg',
     title: 'Салаты',
     id: randomId(),
+    menu: [],
   },
   {
     image:
     'menu-bg/soup.jpg',
     title: 'Супы',
     id: randomId(),
+    menu: [],
   },
   {
     image:
     'menu-bg/drinks.jpg',
     title: 'Напитки',
     id: randomId(),
+    menu: [],
   },
 ];
 

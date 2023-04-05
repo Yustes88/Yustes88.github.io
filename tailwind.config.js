@@ -33,7 +33,9 @@ module.exports = {
         light: '#777B7C',
         davy: '#5C5855',
         battleship: '#958B81',
-
+      },
+      'white': {
+        DEFAULT: '#fff',
       }
     },
     fontFamily: {

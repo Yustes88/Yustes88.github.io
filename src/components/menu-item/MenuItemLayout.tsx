@@ -1,4 +1,4 @@
-import { Dispatch, Fragment, useMemo, useState } from 'react'
+import { Dispatch, Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
@@ -8,7 +8,6 @@ import MenuList from '../bakery-menu/MenuList'
 import ProductsList from './ProductsList'
 import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
-import AddMenu from '../modals/AddMenu'
 import { BakeryMenuTypes } from '../../types/types'
 import { MenuAction } from '../reducer/Reducer'
 
@@ -32,19 +31,14 @@ type MenuItemLayoutProps = {
 }
 
 export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
-  const [data, setData] = useState(useMemo(() => bakeryData, [bakeryData]))
-  const menubyId = getMenuById(id, data)
+  const menubyId = getMenuById(id, bakeryData)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
-  const [openAddMenu, setOpenAddMenu] = useState(false)
 
-  const setModalIsOpenToTrue =()=>{
-    setOpenAddMenu(true)
-}
   
   const handleClick = (id: string) => {    
-  return data.filter((item) => {
+  return bakeryData.filter((item) => {
     return item.id === id ? setMenu(item) : null;
   }) 
   }
@@ -107,7 +101,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick} data={data} />
+            <MenuList handleClick={handleClick} data={bakeryData} dispatch={dispatch} menu={menu}/>
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -139,10 +133,9 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
                     <Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <div className="py-1">
                         {sortOptions.map((option) => (
-                          <Menu.Item>
+                          <Menu.Item key={option.name}>
                             {({ active }) => (
                               <a
-                              key={option.name}
                                 href={option.href}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
@@ -173,18 +166,7 @@ export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayou
 
           </div>
 
-          <div className="mx-auto max-w-3xl p-6 lg:max-w-7xl lg:px-8">
-          <button onClick={setModalIsOpenToTrue}>
-          &#43;	Add a menu
-          </button>
-          <AddMenu
-                open={openAddMenu}
-                setOpen={setOpenAddMenu}
-                data={data}
-                setData={setData}
-                dispatch = {dispatch}
-              />
-          </div>
+          
         </main>
 
       </div>

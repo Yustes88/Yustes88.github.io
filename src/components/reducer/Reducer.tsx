@@ -1,28 +1,74 @@
-import { Reducer } from "react";
-import { BakeryMenuTypes } from "../../types/types";
+import { BakeryMenuItemTypes, BakeryMenuTypes } from "../../types/types";
 
-export type Add = {
-  type: 'add_new_menu' | 'delete_menu'; payload?: BakeryMenuTypes,
-}
 
-export interface Action<T, P> {
+export interface Action<T, P, O> {
   type: T;
-  payload: P;
+  menu: P;
+  item?: O;
 }
 
 export type MenuAction =
-  | Action<'add_new_menu', BakeryMenuTypes>
-  | Action<'delete_menu', string>;
+  | Action<'add_new_menu', any, null>
+  | Action<'delete_menu', BakeryMenuTypes | BakeryMenuItemTypes, null>
+  | Action<'delete_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>
+  | Action<'edit_item',  BakeryMenuTypes | BakeryMenuItemTypes, BakeryMenuItemTypes>
+  | Action<'add_new_item',  any, any>;
+  ;
 
 
 const menuReducer  = (state: BakeryMenuTypes[], action: MenuAction): BakeryMenuTypes[] => {
   switch (action.type) {
     case 'add_new_menu': {
-      console.log('added')
-      return [...state, action.payload];
+      const newArray = state.slice()
+      return [...newArray,  {...action.menu, image: URL.createObjectURL(action.menu.image)}];
     }
     case 'delete_menu': {
-      return [...state.filter((todo) => todo.id !== action.payload)]
+      return [...state.filter((menu) => menu.id !== action.menu.id)]
+    }
+    case 'add_new_item': {
+      return state.map((menu) => {
+        if(menu.id === action.menu.id) {
+          const newItem = action.item;
+          return {
+            ...menu,
+            menu: [...menu.menu, {...newItem, imgSrc: URL.createObjectURL(action.item.imgSrc)}]
+          }
+        }
+        return menu;
+      })
+    }
+    case 'delete_item': {
+      return [...state.map(menu => {
+        if (menu.id === action.menu.id && menu.menu) {
+          return {
+            ...menu,
+            menu: menu.menu.filter(item => item.id !== action.item?.id)
+          };
+        } else {
+          return menu;
+        }})];
+    }
+    case 'edit_item': {
+      return state.map(menu => {
+        if (menu.id === action.menu.id && menu.menu) {
+          const updatedItems = menu.menu.map(item => {
+            if (item.id === action.item?.id) {
+              return {
+                ...action.item,
+                ingredient: typeof action.item.ingredient === 'string' ?  action.item.ingredient.split(',') : action.item.ingredient,
+              };
+            } else {
+              return item;
+            }
+          });
+          return {
+            ...menu,
+            menu: updatedItems
+          };
+        } else {
+          return menu;
+        }
+      });
     }
     default: {
       return state;
