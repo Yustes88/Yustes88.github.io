@@ -12,6 +12,7 @@ import ContactsPage from "./pages/contacts";
 import Main from "./pages/main";
 import MenuPage from "./pages/menu";
 import { BakeryMenuTypes } from "./types/types";
+import { AuthenticationForm } from "./pages/login";
 
 type AppProps = {
   bakeryMenu: BakeryMenuTypes[];
@@ -56,6 +57,7 @@ function App({bakeryMenu}: AppProps) {
       </Route>
       <Route path={AppRoute.About} element={<AboutPage />}/>
       <Route path={AppRoute.Contacts} element={<ContactsPage/>}/>
+      <Route path={AppRoute.Login} element={<AuthenticationForm/>}/>
     </Routes>
     <Footer links={navItems}/>
     </BrowserRouter>

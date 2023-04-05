@@ -5,5 +5,6 @@ export enum AppRoute {
   Id = ':id',
   About = '/about',
   Contacts = '/contacts',
-  Delivery = '/delivery'
+  Delivery = '/delivery',
+  Login = '/login'
 }
