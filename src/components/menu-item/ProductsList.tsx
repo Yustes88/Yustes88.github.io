@@ -5,6 +5,7 @@ import Error from "../error/Error";
 import { MenuAction } from "../reducer/Reducer";
 import EditItem from "../modals/EditItem";
 import AddItem from "../modals/AddItem";
+import EmptyMenu from "../error/EmptyMenu";
 
 type ProductsListProps = {
   menu: BakeryMenuTypes,
@@ -16,7 +17,7 @@ export default function ProductsList({menu, dispatch}: ProductsListProps) {
   return(
     <>
     <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-6 lg:space-y-0">
-            {menu.menu === undefined ? <Error/> : menu.menu.map((item: BakeryMenuItemTypes) => (
+            {menu.menu.length === 0 ? <EmptyMenu/> : menu.menu.map((item: BakeryMenuItemTypes) => (
               <div key={item.id} className="group card">
                 <div className="absolute top-2 right-2 flex gap-2 z-50">
 
