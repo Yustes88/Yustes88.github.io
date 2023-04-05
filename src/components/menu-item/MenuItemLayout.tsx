@@ -1,29 +1,15 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
-import { Fragment, useState } from 'react'
+import { Dispatch, Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import MenuList from '../bakery-menu/MenuList'
-import { bakeryMenuData } from '../../data/data'
 import ProductsList from './ProductsList'
 import { getMenuById } from '../../utils/utils'
 import Error from '../error/Error'
+import { BakeryMenuTypes } from '../../types/types'
+import { MenuAction } from '../reducer/Reducer'
 
 
 const sortOptions = [
@@ -40,16 +26,19 @@ function classNames(...classes: any) {
 
 type MenuItemLayoutProps = {
   id: string | undefined,
+  bakeryData: BakeryMenuTypes[],
+  dispatch: Dispatch<MenuAction>,
 }
 
-export default function MenuItemLayout({id}: MenuItemLayoutProps) {
-  const menubyId = getMenuById(id, bakeryMenuData)
+export default function MenuItemLayout({id, bakeryData, dispatch}: MenuItemLayoutProps) {
+  const menubyId = getMenuById(id, bakeryData)
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [menu, setMenu] = useState(menubyId)
+
   
   const handleClick = (id: string) => {    
-  return bakeryMenuData.filter((item) => {
+  return bakeryData.filter((item) => {
     return item.id === id ? setMenu(item) : null;
   }) 
   }
@@ -112,7 +101,7 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
             </div>
 
             {/* <Filter/> */}
-            <MenuList handleClick={handleClick}/>
+            <MenuList handleClick={handleClick} data={bakeryData} dispatch={dispatch} menu={menu}/>
 
             {/* Filters */}
             <section aria-labelledby="filter-heading" className="border-t border-gray-200 pt-6">
@@ -144,10 +133,9 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
                     <Menu.Items className="absolute left-0 z-10 mt-2 w-40 origin-top-left rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <div className="py-1">
                         {sortOptions.map((option) => (
-                          <Menu.Item>
+                          <Menu.Item key={option.name}>
                             {({ active }) => (
                               <a
-                              key={option.name}
                                 href={option.href}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
@@ -172,11 +160,13 @@ export default function MenuItemLayout({id}: MenuItemLayoutProps) {
               <h2 id="products-heading" className="sr-only">
                 Products
               </h2>
-              {menu?.menu ? <ProductsList menu = {menu}/> : <Error/>}
+              {menu?.menu ? <ProductsList menu = {menu} dispatch={dispatch}/> : <Error/>}
               
             </section>
 
           </div>
+
+          
         </main>
 
       </div>

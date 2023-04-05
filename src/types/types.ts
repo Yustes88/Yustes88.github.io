@@ -6,7 +6,7 @@ export type MenuItem = {
 export type BakeryMenuItemTypes = {
     id: string;
     title: string;
-    ingredient: string[],
+    ingredient: string[] | string,
     description?: string,
     price: number;
     imgSrc: string;
@@ -16,7 +16,7 @@ export type BakeryMenuTypes = {
   image: string;
   title: string;
   id: string;
-  menu?: BakeryMenuItemTypes[]
+  menu: BakeryMenuItemTypes[]
 }
 
 export type DeliveryDataTypes = {
