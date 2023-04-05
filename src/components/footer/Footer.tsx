@@ -1,6 +1,8 @@
 import { createStyles, Anchor, Group, ActionIcon, rem } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import Logo from '../logo/Logo';
+import { AppRoute } from '../../const';
+import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -39,7 +41,9 @@ export function Footer({ links }: FooterCenteredProps) {
       key={link.title}
       href={link.src}
       sx={{ lineHeight: 1 }}
-      onClick={(event) => event.preventDefault()}
+      onClick={() => {
+        <Link to={link.src}/>
+      }}
       size="sm"
     >
       {link.title}
@@ -52,7 +56,22 @@ export function Footer({ links }: FooterCenteredProps) {
         <div>
         <Logo/>
         </div>
-        <Group className={classes.links}>{items}</Group>
+        <Group className={classes.links}>
+          {items}
+
+          <Anchor<'a'>
+      color="dimmed"
+      key={'owner'}
+      href={AppRoute.Login}
+      sx={{ lineHeight: 1 }}
+      size="sm"
+      onClick={() => {
+        <Link to={AppRoute.Login}/>
+      }}
+    >
+      {'Я владелец'}
+    </Anchor>
+        </Group>
 
         <Group spacing="xs" position="right" noWrap>
           <ActionIcon size="lg" variant="default" radius="xl">
