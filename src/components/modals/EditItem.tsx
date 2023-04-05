@@ -1,4 +1,4 @@
-import { TextInput, Group, createStyles, Text, Button, Title, FileInput, Modal, Image } from '@mantine/core';
+import { TextInput, Group, Text, Button, Title, FileInput, Modal, Image } from '@mantine/core';
 import { Dispatch } from 'react'
 import { useForm } from '@mantine/form';
 import { BakeryMenuItemTypes, BakeryMenuTypes } from '../../types/types';
@@ -76,6 +76,7 @@ export default function EditItem({dispatch, item, menu}: EditItemProps) {
         if(menu.menu) {
           dispatch({type: 'edit_item', menu: menu, item: form.values})
         }
+        form.reset()
         close()
       }}>
         Отредактировать

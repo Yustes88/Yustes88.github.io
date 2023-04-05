@@ -32,7 +32,8 @@ export default function AddMenu({dispatch}: AddMenuProps) {
        <TextInput
               withAsterisk
               label="Название"
-              placeholder="Название меню"
+              placeholder="Название меню" 
+              mb='sm'
               {...form.getInputProps('title')}
               styles={{
                 input: {
@@ -48,6 +49,7 @@ export default function AddMenu({dispatch}: AddMenuProps) {
         label="Загрузите фото меню" 
         placeholder="Загрузите фото меню" 
         accept="image/png,image/jpeg" 
+        mb='md'
         {...form.getInputProps('image')}
         />
 
@@ -63,6 +65,7 @@ export default function AddMenu({dispatch}: AddMenuProps) {
             menu: form.values,
           })
         }
+        form.reset()
         close()
       }}>
         Сохранить

@@ -74,6 +74,7 @@ export default function AddItem({dispatch, menu}: EditItemProps) {
           dispatch({
             type: 'add_new_item', menu: menu, item: form.values})
         }
+        form.reset()
         close()
       }}>
         Сохранить
